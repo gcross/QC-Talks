@@ -1,0 +1,1581 @@
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/README.Apple slithy-20030706/README.Apple
+--- slithy-20030706/README.Apple	Wed Dec 31 16:00:00 1969
++++ slithy-20030706/README.Apple	Thu Mar  4 13:41:23 2004
+@@ -0,0 +1,104 @@
++LIMITATIONS
++---
++Interacting with objects and the pop-up bookmarks menu using
++the mouse is not supported.  Interacting with objects is
++probably a matter of some coding to deliver the mouse events.  
++The pop-up menu may be less straightforward.
++
++
++REQUIRED BITS
++---
++We need a tk that uses aqua directly so that we can get full
++screen and good performance.  (so we install tcl/tk.)  The
++default python doesn't have tkinter, but we can add it as a
++binary module.
++
++Open up a new Terminal.
++
++from:
++http://www.apple.com/downloads/macosx/unix_open_source/tcltk.html
++http://tcl.sourceforge.net/
++   TclTkAquaBI-8.4.4.0.dmg "Batteries Included" release.  
++   I don't think batteries (extra packages that use tcl) are 
++   required, but nice to have.
++
++http://www.visionegg.org/install-macosx-details.html 
++ usually has good instructions for installing enough python stuff 
++ to make opengl work.  To get tkinter and some other stuff, 
++
++ open http://ftp.cwi.nl/jack/python/mac/MacPython-Panther-2.3-2.dmg
++  # install it.
++ sudo chmod a+w /System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages
++ open /Applications/MacPython-2.3/PackageManager.app 
++  # install tkinter, PIL, and probably Numeric
++ sudo chmod o-w /System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages
++
++from:
++http://sourceforge.net/projects/pmw/
++   Pmw version 1.2 works fine.  
++     cd /System/Library/Frameworks/Python.framework/Versions/Current/lib/python2.3/site-packages && \
++     sudo tar xvf ~/download/Pmw.1.2.tar
++
++A useful freetype is now part of the default install.
++libjpeg was only needed for installing PIL, which is one
++of the packages installed above.
++
++
++BUILDING
++---
++cd slithy
++make MAC=1 PYTHON=/usr/bin/python
++
++an alternative...  
++--- 
++The changes that support the AGL-based build on mac do not
++prevent you from trying to build slithy as if it were unix
++using glX.  I understand some folks have made slithy work
++properly under fink with some video cards.  To build with
++fink (I don't recommend it at the moment) you'll want to use
++the LINK= line from the MAC section of the makefile.  It is
++possible that both fink libraries and AGL can be used with
++some mix.  Good luck.
++ 
++TESTING
++---
++setenv PYTHONPATH `pwd`
++cd techfest
++/usr/bin/pythonw ./techfest.py
++
++OTHER
++---
++
++Miscellaneous sources of information if you're interested in
++continuing the agl, os x port.
++
++python / tkinter:
++http://www.python.org/topics/tkinter/trouble.html#checking
++http://aspn.activestate.com/ASPN/Mail/Message/tcl-mac/1585898
++
++opengl, agl
++http://developer.apple.com/macosx/win32porting/3dgraphics.html
++http://developer.apple.com/documentation/GraphicsImaging/Reference/AGL_OpenGL/index.html
++
++quicktime movies in an opengl environment:
++http://developer.apple.com/samplecode/Sample_Code/Graphics_3D/OpenGL_Movie.htm 
++http://www.withay.com/macosx/opengl/gl_qt.html
++
++
++TROUBLESHOOTING
++--
++FT_New_Face damage -- you're using the wrong freetype library.
++
++KNOW THIS ONE TO AVOID EMBARRASSMENT:
++Blank screen except for mouse pointer after presentation --
++hit f7 (the screen thing) a few times to resync.  Hit it
++until you get a display back, then until you see mirrored
++displays.  
++
++I've hard-coded the refresh rate to 60Hz when running
++full-screen on the mac.  Without this change, it appears
++that some projectors will not support the faster(?) refresh
++rate.  With this change, well, all caveats about hard-coded
++parameters apply.  Send me mail if changing the variable
++refresh_rate in ob_slsoggy.c makes slithy work better
++somewhere.
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/setup.py slithy-20030706/setup.py
+--- slithy-20030706/setup.py	Wed Dec 31 16:00:00 1969
++++ slithy-20030706/setup.py	Fri Nov 21 21:00:40 2003
+@@ -0,0 +1,3 @@
++from distutils.core import setup
++setup(name = "slithy", version = "20030706",
++      packages = ["slithy"])
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/Makefile slithy-20030706/slithy/Makefile
+--- slithy-20030706/slithy/Makefile	Mon Apr  7 13:35:58 2003
++++ slithy-20030706/slithy/Makefile	Thu Mar  4 13:53:35 2004
+@@ -1,33 +1,85 @@
++# per-machine configuration.
++# version configs -- for linux, this simplifies 
++# finding the include files and libraries
++TKVER=8.4
++# which of your pythons? (in case you have python2.3 or /usr/local)
++PYTHON=/usr/bin/python
++MAC=1   # uncomment this line if you're on a mac.
++
++# -----
++# it's entirely possible you won't have to touch stuff 
++# below here 
++# -----
++
+ CC = gcc
+-CFLAGS = -O2
+ 
+-INCPATH = -I/uns/include/python2.2 -I/uns/include -I/usr/X11R6/include `freetype-config --cflags`
++# build using make MAC=1 to enable the macintosh build; see 
++# README.Apple for details of support software to grab.
++ifdef MAC
++LINK = 	$(CC) -flat_namespace -undefined suppress -bundle 
++# the following may be easily changed to /opt/local/bin, but
++# only if opendarwin's package has FT_New_Face
++# FTCONFIG = /usr/local/bin/freetype-config
++FTCONFIG = /usr/X11R6/bin/freetype-config
++CFLAGS = -g -O2 -Wall \
++	-I/System/Library/Frameworks/OpenGL.framework/Headers \
++	-I/System/Library/Frameworks/AGL.framework/Headers \
++	-I/System/Library/Frameworks/Tcl.framework/Headers \
++	-I/Library/Frameworks/Tk.framework/Headers \
++	-I/System/Library/Frameworks/Python.framework/Headers \
++	-Wno-long-double \
++	-DUSE_APPLE_AGL -DAPPLE_FULLSCREEN \
++	`$(FTCONFIG) --cflags` 
++
++# -Wall -Wno-unused 
++LIBPATH = 
++LIBS = -framework Tcl -framework Tk -framework OpenGL -framework AGL \
++	`$(FTCONFIG) --libs` -ldl -lm  \
++	-bundle_loader /System/Library/Frameworks/Python.framework/Versions/Current/Resources/Python.app/Contents/MacOS/Python  
++DLEXT=so
++else
++# linux build
++LINK = 	$(CC) -shared
++FTCONFIG = freetype-config
++CFLAGS = -g -O2 \
++	-I`$(PYTHON) -c "import distutils.sysconfig; print distutils.sysconfig.get_python_inc()"` \
++	-I/uns/include \
++	-I/usr/X11R6/include \
++	-I/usr/include/tcl$(TKVER) \
++	`$(FTCONFIG) --cflags` 
+ LIBPATH = -L/usr/lib -L/uns/lib -L/usr/X11R6/lib
+-LIBS = -lGL -lGLU -ldl -lXext -lX11 -lm -ltcl8.3 -ltk8.3 `freetype-config --libs`
++LIBS = -lGL -lGLU -ldl -lXext -lX11 -lm -ltcl$(TKVER) -ltk$(TKVER) `$(FTCONFIG) --libs`
++DLEXT=so
++endif
++
++INSTALL_TO=`$(PYTHON) -c "import distutils.sysconfig; print distutils.sysconfig.get_python_lib()"`
+ 
+-TARGETS = dobj.so draw.so diafont.so diaimage.so
++TARGETS = dobj.$(DLEXT) draw.$(DLEXT) diafont.$(DLEXT) diaimage.$(DLEXT)
+ 
+ SOURCES = diafont.c diaimage.c \
+ 	  dr_bezier.c dr_color.c dr_draw.c dr_grid.c dr_image.c dr_path.c dr_stack.c \
+ 	  dr_text.c dr_wide.c dr_xform.c dr_mark.c \
+ 	  ob_opengl.c ob_slsoggy.c
+ 
+-CFLAGS = $(INCPATH) -fpic -g -O2
+-
+ all : $(TARGETS)
+ 
+-dobj.so : ob_slsoggy.o ob_opengl.o
+-	gcc -shared -o $@ $^ $(LIBPATH) $(LIBS)
++install : $(TARGETS)
++	mkdir -p $(INSTALL_TO)/slithy
++	install -m644 $(TARGETS) $(INSTALL_TO)/slithy
++	install -m644 *.py $(INSTALL_TO)/slithy
++
++dobj.$(DLEXT) : ob_slsoggy.o ob_opengl.o
++	$(LINK) -o $@ $^ $(LIBPATH) $(LIBS)
+ 
+-draw.so : dr_draw.o dr_bezier.o dr_path.o dr_grid.o dr_text.o dr_color.o dr_image.o \
++draw.$(DLEXT) : dr_draw.o dr_bezier.o dr_path.o dr_grid.o dr_text.o dr_color.o dr_image.o \
+ 	  dr_stack.o dr_xform.o dr_wide.o dr_mark.o
+-	gcc -shared -o $@ $^ $(LIBPATH) $(LIBS)
++	$(LINK) -o $@ $^ $(LIBPATH) $(LIBS)
+ 
+-diafont.so : diafont.o
+-	gcc -shared -o $@ $^ $(LIBPATH) $(LIBS)
++diafont.$(DLEXT) : diafont.o
++	$(LINK) -o $@ $^ $(LIBPATH) $(LIBS)
+ 
+-diaimage.so : diaimage.o
+-	gcc -shared -o $@ $^ $(LIBPATH) $(LIBS)
++diaimage.$(DLEXT) : diaimage.o
++	$(LINK) -o $@ $^ $(LIBPATH) $(LIBS)
+ 
+ 
+ clean :
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/diafont.c slithy-20030706/slithy/diafont.c
+--- slithy-20030706/slithy/diafont.c	Sat Apr 19 11:28:22 2003
++++ slithy-20030706/slithy/diafont.c	Thu Mar  4 14:12:42 2004
+@@ -1,28 +1,16 @@
+-#ifndef _MAKEDEPEND
+-
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-
+-#ifdef WIN32
+-#include <windows.h>
+-#endif
++#include "sl_common.h"
+ 
+-#include <stdlib.h>
+-#include <stdio.h>
++#ifndef _MAKEDEPEND
+ #include <math.h>
+ #include <string.h>
++#ifndef __APPLE__
+ #include <search.h>
+-
+-#include <GL/gl.h>
+-#include <GL/glu.h>
++#endif
+ 
+ #include <ft2build.h>
+ #include FT_FREETYPE_H
++
++/* _MAKEDEPEND */
+ #endif
+ 
+ #include "diafont.h"
+@@ -749,7 +737,9 @@
+ 			   double* ymin, double* ymax, double* aw, double* ah )
+ {
+     texture_character* tc;
++#if 0
+     unsigned int orig_k = k;
++#endif
+     int glyph;
+ 
+     if ( k == 0xa0 )   // hack hack hack
+@@ -785,7 +775,9 @@
+ 
+ static PyObject* font_astuple( PyObject* self, PyObject* args )
+ {
++#if 0
+     static PyObject* zlibmodule = NULL;
++#endif
+     static PyObject* tag = NULL;
+     FontObject* f = (FontObject*)self;
+     PyObject* bitmap;
+@@ -857,7 +849,9 @@
+ 
+ static int load_font_from_tuple( FontObject* f, PyObject* tuple )
+ {
++#if 0
+     static PyObject* zlibmodule;
++#endif
+     PyObject* tag;
+     PyObject* bitmap;
+     PyObject* bitmapz;
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/diaimage.c slithy-20030706/slithy/diaimage.c
+--- slithy-20030706/slithy/diaimage.c	Sat Apr 19 11:27:16 2003
++++ slithy-20030706/slithy/diaimage.c	Fri Nov 21 21:00:41 2003
+@@ -1,18 +1,4 @@
+-#ifndef _MAKEDEPEND
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-#ifdef WIN32
+-#include <windows.h>
+-#endif
+-
+-#include <GL/gl.h>
+-#endif
+-
++#include "sl_common.h"
+ #include "diaimage.h"
+ 
+ #ifndef FUNC_PY_STATIC
+@@ -353,7 +339,7 @@
+ 	Py_INCREF( key );
+     }
+     
+-    if ( item = PyDict_GetItem( cache, key ) )
++    if ( ( item = PyDict_GetItem( cache, key ) ) != 0 )
+     {
+ 	// hooray, in the cache
+ 	Py_DECREF( key );
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/dr_bezier.c slithy-20030706/slithy/dr_bezier.c
+--- slithy-20030706/slithy/dr_bezier.c	Wed Apr  9 15:53:50 2003
++++ slithy-20030706/slithy/dr_bezier.c	Fri Nov 21 21:00:41 2003
+@@ -1,23 +1,4 @@
+-#ifndef _MAKEDEPEND
+-
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-
+-#ifdef WIN32
+-#include <windows.h>
+-#endif
+-
+-#include <GL/gl.h>
+-#include <GL/glu.h>
+-
+-#include <math.h>
+-#endif
+-
++#include "sl_common.h"
+ #include "dr_draw.h"
+ 
+ #define ALLOC_CHUNK  512
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/dr_color.c slithy-20030706/slithy/dr_color.c
+--- slithy-20030706/slithy/dr_color.c	Fri Feb 14 13:47:16 2003
++++ slithy-20030706/slithy/dr_color.c	Fri Nov 21 21:00:41 2003
+@@ -1,7 +1,3 @@
+-#ifndef _MAKEDEPEND
+-#include <assert.h>
+-#endif
+-
+ #include "dr_draw.h"
+ 
+ double* get_color_from_args( PyObject* args )
+@@ -24,8 +20,10 @@
+ 
+     result = get_color_from_object( args );
+ 
+-    if ( ref )
++    if ( ref ) {
++        /* Py_DECREF is a macro with if/else in its definition */
+ 	Py_DECREF( args );
++    }
+ 
+     return result;
+ }
+@@ -50,8 +48,9 @@
+     rgba[2] = PyFloat_AsDouble( PyTuple_GetItem( args, 2 ) );
+     rgba[3] = PyFloat_AsDouble( PyTuple_GetItem( args, 3 ) );
+ 
+-    if ( ref )
++    if ( ref ) {
+ 	Py_DECREF( args );
++    }
+ 
+     return rgba;
+ }
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/dr_draw.c slithy-20030706/slithy/dr_draw.c
+--- slithy-20030706/slithy/dr_draw.c	Sun Apr 13 09:40:30 2003
++++ slithy-20030706/slithy/dr_draw.c	Thu Mar  4 13:48:17 2004
+@@ -1,27 +1,38 @@
+-#ifndef _MAKEDEPEND
+-
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-
+-#ifdef WIN32
+-#include <windows.h>
+-#endif
+-
+-#include <stdio.h>
+-
+-#include <GL/gl.h>
+-#include <GL/glu.h>
+-#endif
+-
++#include "sl_common.h"
+ #include "dr_draw.h"
++
+ void set_id_depth( int id );
+ static double compute_id_depth( int id );
+ 
++/* from dr_draw.h, but static, so only useful here. */
++static FUNC_PY( draw_set_camera );
++static FUNC_PY_KEYWD( draw_embed_object );
++static FUNC_PY_KEYWD( draw_embed );
++
++static FUNC_PY( set_hooks );
++static FUNC_PY_NOARGS( draw_camera );
++static FUNC_PY_NOARGS( draw_visible );
++
++static FUNC_PY( draw_clear );
++static FUNC_PY( draw_clear_alpha );
++
++static FUNC_PY( draw_line );
++static FUNC_PY( draw_circle );
++static FUNC_PY( draw_dot );
++static FUNC_PY( draw_polygon );
++static FUNC_PY_KEYWD( draw_rectangle );
++static FUNC_PY( draw_frame );
++
++static FUNC_PY( draw_color );
++static FUNC_PY( draw_id );
++static FUNC_PY( draw_thickness );
++
++static FUNC_PY( draw_clip );
++static FUNC_PY( draw_unclip );
++
++static FUNC_PY( read_id );
++/* end from dr_draw.h */
++
+ #define CIRCLE_STEPS 60
+ 
+ static FUNC_PY( pre_drawing );
+@@ -112,8 +123,8 @@
+ int auto_mark;
+ PyObject* context_name = NULL;
+ 
+-int viewport[4];
+-int depth_bits;
++GLint viewport[4];
++GLint depth_bits;
+ 
+ void
+ #ifdef WIN32
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/dr_draw.h slithy-20030706/slithy/dr_draw.h
+--- slithy-20030706/slithy/dr_draw.h	Wed Apr  9 15:53:50 2003
++++ slithy-20030706/slithy/dr_draw.h	Fri Nov 21 21:00:41 2003
+@@ -1,17 +1,7 @@
+ #ifndef _DR_DRAW_H
+ #define _DR_DRAW_H
+ 
+-#ifndef _MAKEDEPEND
+-
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-
+-#endif
++#include "sl_common.h"
+ 
+ extern PyObject* color_class;
+ extern PyObject* font_class;
+@@ -27,7 +17,7 @@
+ extern int auto_mark;
+ extern PyObject* context_name;
+ 
+-extern int viewport[4];
++extern GLint viewport[4];
+ extern int current_IPM_dirty;
+ extern double current_IPM[16];
+ 
+@@ -41,32 +31,6 @@
+ #define FUNC_PY_KEYWD(fn)  PyObject* fn( PyObject* self, PyObject* args, PyObject* keywds )
+ #endif
+ 
+-static FUNC_PY( draw_set_camera );
+-static FUNC_PY_KEYWD( draw_embed_object );
+-static FUNC_PY_KEYWD( draw_embed );
+-
+-static FUNC_PY( set_hooks );
+-static FUNC_PY_NOARGS( draw_camera );
+-static FUNC_PY_NOARGS( draw_visible );
+-
+-static FUNC_PY( draw_clear );
+-static FUNC_PY( draw_clear_alpha );
+-
+-static FUNC_PY( draw_line );
+-static FUNC_PY( draw_circle );
+-static FUNC_PY( draw_dot );
+-static FUNC_PY( draw_polygon );
+-static FUNC_PY_KEYWD( draw_rectangle );
+-static FUNC_PY( draw_frame );
+-
+-static FUNC_PY( draw_color );
+-static FUNC_PY( draw_id );
+-static FUNC_PY( draw_thickness );
+-
+-static FUNC_PY( draw_clip );
+-static FUNC_PY( draw_unclip );
+-
+-static FUNC_PY( read_id );
+ 
+ // mark.c
+ 
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/dr_grid.c slithy-20030706/slithy/dr_grid.c
+--- slithy-20030706/slithy/dr_grid.c	Wed Apr  9 15:53:50 2003
++++ slithy-20030706/slithy/dr_grid.c	Fri Nov 21 21:00:42 2003
+@@ -1,23 +1,4 @@
+-#ifndef _MAKEDEPEND
+-
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-
+-#ifdef WIN32
+-#include <windows.h>
+-#endif
+-
+-#include <GL/gl.h>
+-#include <GL/glu.h>
+-
+-#include <math.h>
+-#endif
+-
++#include "sl_common.h"
+ #include "dr_draw.h"
+ 
+ PyObject* draw_grid( PyObject* self, PyObject* args )
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/dr_image.c slithy-20030706/slithy/dr_image.c
+--- slithy-20030706/slithy/dr_image.c	Wed Apr  9 15:53:50 2003
++++ slithy-20030706/slithy/dr_image.c	Fri Nov 21 21:00:42 2003
+@@ -1,23 +1,4 @@
+-#ifndef _MAKEDEPEND
+-
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-
+-#ifdef WIN32
+-#include <windows.h>
+-#endif
+-
+-#include <GL/gl.h>
+-#include <GL/glu.h>
+-
+-#include <stdio.h>
+-#endif
+-
++#include "sl_common.h"
+ #include "dr_draw.h"
+ #include "diaimage.h"
+ 
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/dr_mark.c slithy-20030706/slithy/dr_mark.c
+--- slithy-20030706/slithy/dr_mark.c	Wed Apr  9 15:53:50 2003
++++ slithy-20030706/slithy/dr_mark.c	Fri Nov 21 21:00:42 2003
+@@ -1,23 +1,4 @@
+-#ifndef _MAKEDEPEND
+-
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-
+-#ifdef WIN32
+-#include <windows.h>
+-#endif
+-
+-#include <stdio.h>
+-
+-#include <GL/gl.h>
+-#include <GL/glu.h>
+-#endif
+-
++#include "sl_common.h"
+ #include "dr_draw.h"
+ 
+ static PyObject* marklist = NULL;
+@@ -217,7 +198,7 @@
+     double tx, ty;
+     double MV[16];
+     double P[16];
+-    int V[4];
++    GLint V[4];
+ 
+     if ( !PyArg_ParseTuple( args, "dd", &x, &y ) )
+ 	return NULL;
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/dr_path.c slithy-20030706/slithy/dr_path.c
+--- slithy-20030706/slithy/dr_path.c	Sat Apr 26 09:51:36 2003
++++ slithy-20030706/slithy/dr_path.c	Thu Mar  4 14:04:43 2004
+@@ -1,23 +1,4 @@
+-#ifndef _MAKEDEPEND
+-
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-
+-#ifdef WIN32
+-#include <windows.h>
+-#endif
+-
+-#include <GL/gl.h>
+-#include <GL/glu.h>
+-
+-#include <math.h>
+-#endif
+-
++#include "sl_common.h"
+ #include "dr_draw.h"
+ 
+ #define S_CLOSE  0
+@@ -397,14 +378,15 @@
+     for ( i = 0; i < n; ++i )
+     {
+ 	temp = PyList_GetItem( plist, i );
+-	if ( PyInt_Check( temp ) )
++	if ( PyInt_Check( temp ) ) {
+ 	    d = PyInt_AsLong( temp );
+-	else if ( PyTuple_Check( temp ) )
++            glDeleteLists( d, 1 );
++        } else if ( PyTuple_Check( temp ) ) {
+ 	    d = PyInt_AsLong( PyTuple_GetItem( temp, 0 ) );
+-	else
++            glDeleteLists( d, 1 );
++	} else { 
+ 	    fprintf( stderr, "delete_invalid_lists:  bad cache value\n" );
+-
+-	glDeleteLists( d, 1 );
++        }
+ #if 0
+ 	printf( " %d", d );
+ #endif
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/dr_stack.c slithy-20030706/slithy/dr_stack.c
+--- slithy-20030706/slithy/dr_stack.c	Wed Apr  9 15:53:50 2003
++++ slithy-20030706/slithy/dr_stack.c	Fri Nov 21 21:00:42 2003
+@@ -1,23 +1,4 @@
+-#ifndef _MAKEDEPEND
+-
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-
+-#ifdef WIN32
+-#include <windows.h>
+-#endif
+-
+-#include <stdio.h>
+-
+-#include <GL/gl.h>
+-#include <GL/glu.h>
+-#endif
+-
++#include "sl_common.h"
+ #include "dr_draw.h"
+ 
+ static gstate* gstate_stack = NULL;
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/dr_text.c slithy-20030706/slithy/dr_text.c
+--- slithy-20030706/slithy/dr_text.c	Wed Apr  9 15:53:50 2003
++++ slithy-20030706/slithy/dr_text.c	Fri Nov 21 21:00:42 2003
+@@ -1,22 +1,6 @@
+-#ifndef _MAKEDEPEND
+-
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-
+-#ifdef WIN32
+-#include <windows.h>
+-#endif
++#include "sl_common.h"
+ 
+-#include <GL/gl.h>
+-#include <GL/glu.h>
+-
+-#include <stdio.h>
+-#include <string.h>
++#ifndef _MAKEDEPEND
+ #include <stdlib.h>
+ #include <ctype.h>
+ #endif
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/dr_wide.c slithy-20030706/slithy/dr_wide.c
+--- slithy-20030706/slithy/dr_wide.c	Wed Apr  9 15:53:50 2003
++++ slithy-20030706/slithy/dr_wide.c	Fri Nov 21 21:00:42 2003
+@@ -1,23 +1,4 @@
+-#ifndef _MAKEDEPEND
+-
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-
+-#ifdef WIN32
+-#include <windows.h>
+-#endif
+-
+-#include <GL/gl.h>
+-#include <GL/glu.h>
+-
+-#include <math.h>
+-#endif
+-
++#include "sl_common.h"
+ #include "dr_draw.h"
+ 
+ #define S_CLOSE  0
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/dr_xform.c slithy-20030706/slithy/dr_xform.c
+--- slithy-20030706/slithy/dr_xform.c	Wed Apr  9 15:53:50 2003
++++ slithy-20030706/slithy/dr_xform.c	Fri Nov 21 21:00:42 2003
+@@ -1,23 +1,4 @@
+-#ifndef _MAKEDEPEND
+-
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-
+-#ifdef WIN32
+-#include <windows.h>
+-#endif
+-
+-#include <stdio.h>
+-
+-#include <GL/gl.h>
+-#include <GL/glu.h>
+-#endif
+-
++#include "sl_common.h"
+ #include "dr_draw.h"
+ 
+ FUNC_PY( draw_shear )
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/ob_opengl.c slithy-20030706/slithy/ob_opengl.c
+--- slithy-20030706/slithy/ob_opengl.c	Sat Apr 19 11:26:36 2003
++++ slithy-20030706/slithy/ob_opengl.c	Thu Mar  4 13:50:09 2004
+@@ -1,24 +1,4 @@
+-#ifndef _MAKEDEPEND
+-
+-#ifdef _DEBUG
+-#undef _DEBUG
+-#include <Python.h>
+-#define _DEBUG
+-#else
+-#include <Python.h>
+-#endif
+-
+-#ifdef WIN32
+-#define _WIN32_WINNT 0x0500
+-#include <windows.h>
+-#endif
+-
+-#include <tcl.h>
+-#include <stdio.h>
+-
+-#include <GL/gl.h>
+-#include <GL/glu.h>
+-#endif
++#include "sl_common.h"
+ 
+ #ifndef GL_ERROR_CHECK
+ #define GL_ERROR_CHECK(str) {int qqqq;if((qqqq=glGetError())!=GL_NO_ERROR)printf("%s: GL error %x\n", str, qqqq);}
+@@ -71,6 +51,7 @@
+ 
+ static PyObject* opengl_init( PyObject* self, PyObject* args )
+ {
++    GL_ERROR_CHECK("top of opengl_init");
+     printf( "     vendor : %s\n", glGetString( GL_VENDOR ) );
+     printf( "   renderer : %s\n", glGetString( GL_RENDERER ) );
+     printf( "    version : %s\n", glGetString( GL_VERSION ) );
+@@ -78,6 +59,12 @@
+     /*printf( "extensions : %s\n", glGetString( GL_EXTENSIONS ) );*/
+     
+     glEnable( GL_VERTEX_ARRAY );
++    /* on mac, we expect that to fail; must be enabled as 
++       client state instead, */
++    if(glGetError() != GL_NO_ERROR) {
++      glEnableClientState( GL_VERTEX_ARRAY );
++      GL_ERROR_CHECK( "enable client gl_vertex_array" );
++    }
+     glEnable( GL_BLEND );
+     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+ 
+@@ -85,6 +72,7 @@
+     glDepthFunc( GL_ALWAYS );
+ 
+     glClearDepth( 0.0 );
++    GL_ERROR_CHECK( "end of opengl_init" );
+     
+ 
+     //glEnable( GL_POLYGON_SMOOTH );
+@@ -101,6 +89,7 @@
+     window_aspect = window_width / (double)window_height;
+     
+     glViewport( 0, 0, window_width, window_height );
++    GL_ERROR_CHECK( "glViewport" );
+ 
+     glMatrixMode( GL_PROJECTION );
+     glLoadIdentity();
+@@ -153,7 +142,8 @@
+ 
+     glMatrixMode( GL_PROJECTION );
+     glLoadIdentity();
+-    glOrtho( -window_aspect, window_aspect, -1.0, 1.0, 0.0, 1.0 );
++    /* left, right, bottom, top, zNear, zFar (in distance from eye) */
++    glOrtho( -window_aspect, window_aspect, -1.0, 1.0, 0.0, 1.0 ); 
+     glPushMatrix();
+ 
+     glMatrixMode( GL_MODELVIEW );
+@@ -174,6 +164,8 @@
+     if ( !PyArg_ParseTuple( args, "|s", &filename ) )
+ 	return NULL;
+ 
++    GL_ERROR_CHECK( "top of opengl_enddraw" );
++
+ #if 0
+     {
+ 	GLfloat d;
+@@ -192,7 +184,7 @@
+ 	int n = PyTuple_GET_SIZE( query_object );
+ 	int i, x, y;
+ 	GLfloat d;
+-	int depth_bits;
++	GLint depth_bits;
+ 	unsigned int id;
+ 	
+ 	glGetIntegerv( GL_DEPTH_BITS, &depth_bits );
+@@ -209,6 +201,7 @@
+ 	    PyTuple_SET_ITEM( result, i, PyInt_FromLong(id) );
+ 	}
+ 
++        GL_ERROR_CHECK( "another end to opengl_enddraw" );
+ 	return result;
+     }
+     
+@@ -240,6 +233,7 @@
+ 	glReadBuffer( GL_FRONT );
+ 	glReadPixels( 0, 0, window_width, window_height, GL_RGB, GL_UNSIGNED_BYTE,
+ 		      PyString_AsString( data ) );
++        GL_ERROR_CHECK( "after glReadPixels" );
+ 	
+ 	im = PyObject_CallMethod( module, "fromstring", "s(ii)Ossii", "RGB", window_width, window_height,
+ 				  data, "raw", "RGB", 0, -1 );
+@@ -251,6 +245,7 @@
+ 	Py_XDECREF( data );
+     }
+ 
++    GL_ERROR_CHECK( "an end to opengl_enddraw" );
+     Py_INCREF( Py_None );
+     return Py_None;
+ }
+@@ -331,6 +326,8 @@
+     if ( !PyArg_ParseTuple( args, "i", &bit ) )
+ 	return NULL;
+ 
++    /* presumably this is the code to frob scroll lock while
++       a slide is still animating? */
+ #ifdef WIN32
+     state = GetKeyState( VK_SCROLL );
+     state = state & 1;
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/ob_slsoggy.c slithy-20030706/slithy/ob_slsoggy.c
+--- slithy-20030706/slithy/ob_slsoggy.c	Sun Apr 13 18:21:40 2003
++++ slithy-20030706/slithy/ob_slsoggy.c	Thu Mar  4 13:57:18 2004
+@@ -9,31 +9,32 @@
+ 
+ #define SOGGY_VERSION  "0.5"
+ 
+-#ifndef _MAKEDEPEND
+-#include <tcl.h>
+-#include <tk.h>
++#include "sl_common.h"
+ 
+ #ifdef WIN32
+-#include <windows.h>
+-#else
+-#include <stdio.h>
+-#include <stdlib.h>
++/* this prevents us from using the stub libraries, unfortunately. */
++HWND Tk_GetHWND( Window );
+ #endif
+ 
++struct platform {
+ #ifdef WIN32
+-#include <gl\gl.h>
+-#include <gl\glu.h>
++    /* w32 */
++#define ContextType HCLRC
++    HWND hwnd;
++    ContextType hglrc;
++#elif defined(USE_APPLE_AGL)
++    /* apple under aqua */
++#define ContextType AGLContext
++    CGrafPtr draw;  /* is the same as a GWorldPtr  */
++    Tk_Cursor offcursor;
++    ContextType context;
+ #else
+-#include <GL/gl.h>
+-#include <GL/glu.h>
+-#include <GL/glx.h>
+-#endif
+-#endif
+-
+-#ifdef WIN32
+-/* this prevents us from using the stub libraries, unfortunately. */
+-HWND Tk_GetHWND( Window );
++    /* linux */
++#define ContextType GLXContext
++    Tk_Cursor offcursor;
++    ContextType cx;
+ #endif
++};
+ 
+ typedef struct _soggy
+ {
+@@ -49,31 +50,19 @@
+     
+     int showcursor;
+     int cursorstate;
+-#ifndef WIN32
+-    Tk_Cursor offcursor;
+-#endif
+     
+-#ifdef WIN32
+-    HWND hwnd;
+-    HGLRC hglrc;
+-#else
+-    GLXContext cx;
+-#endif
++    struct platform pl;
+ 
+     Tcl_Obj* reshapePtr;
+     Tcl_Obj* redrawPtr;
+     Tcl_Obj* initPtr;
+ 
+-    int red_bits, green_bits, blue_bits, alpha_bits;
+-    int red_accum_bits, green_accum_bits, blue_accum_bits, alpha_accum_bits;
+-    int depth_bits, stencil_bits;
++    GLint red_bits, green_bits, blue_bits, alpha_bits;
++    GLint red_accum_bits, green_accum_bits, blue_accum_bits, alpha_accum_bits;
++    GLint depth_bits, stencil_bits;
+ } Soggy;
+ 
+-#ifdef WIN32
+-HGLRC last_created_context = NULL;
+-#else
+-GLXContext last_created_context = NULL;
+-#endif
++ContextType last_created_context = NULL;
+ 
+ static Tk_OptionSpec optionSpecs[] = {
+     { TK_OPTION_PIXELS, "-width", "width", "Width", "200",
+@@ -122,11 +111,6 @@
+ Soggy* g_saveswap;
+ #endif
+ 
+-#ifdef WIN32
+-int __declspec( dllexport ) Slsoggy_Init( Tcl_Interp* interp );
+-BOOL __declspec( dllexport ) WINAPI DllMain( HINSTANCE, DWORD, LPVOID );
+-#endif
+-
+ static int SoggyCmd( ClientData clientData, Tcl_Interp* interp, int objc, Tcl_Obj* const objv[] );
+ static int SoggyConfigure( Tcl_Interp* interp, Soggy* soggyPtr, int objc, Tcl_Obj* const objv[] );
+ static int SoggyWidgetCmd( ClientData clientdata, Tcl_Interp* interp, int objc, Tcl_Obj* const objv[] );
+@@ -141,6 +125,8 @@
+ #endif
+ 
+ #ifdef WIN32
++int __declspec( dllexport ) Slsoggy_Init( Tcl_Interp* interp );
++BOOL __declspec( dllexport ) WINAPI DllMain( HINSTANCE, DWORD, LPVOID );
+ BOOL WINAPI DllMain( HINSTANCE hInst, DWORD dwReason, LPVOID reserved )
+ {
+     return 1;
+@@ -221,7 +207,9 @@
+ 	return TCL_ERROR;
+     }
+ 
+-#ifdef WIN32
++#if defined( WIN32 ) ||  defined(USE_APPLE_AGL)
++    /* ensures that the window is there, placed above the
++       control window */
+     Tk_MakeWindowExist( soggyPtr->tkwin );
+ #endif
+     if ( OpenGLSetup( soggyPtr, interp ) != TCL_OK )
+@@ -237,7 +225,7 @@
+ #ifndef WIN32
+     {
+ 	char zero = 0;
+-	soggyPtr->offcursor = Tk_GetCursorFromData( soggyPtr->interp, soggyPtr->tkwin,
++	soggyPtr->pl.offcursor = Tk_GetCursorFromData( soggyPtr->interp, soggyPtr->tkwin,
+ 						    &zero, &zero, 1, 1, 0, 0,
+ 						    Tk_GetUid("white"), Tk_GetUid("black") );
+     }
+@@ -286,13 +274,15 @@
+ #ifdef WIN32
+     char* cmdtable[] = { "configure", "cget", "init", "reshape", "redraw", "eval", "gethwnd", NULL };
+ #else
+-    char* cmdtable[] = { "configure", "cget", "init", "reshape", "redraw", "eval", NULL };
++    const char* cmdtable[] = { "configure", "cget", "init", "reshape", "redraw", "eval", NULL };
+ #endif
+     int cmd;
+     Soggy* soggyPtr = (Soggy*)clientdata;
+     int result = TCL_OK;
+     Tcl_Obj* objPtr;
+ 
++    assert(soggyPtr != NULL);
++
+     if ( objc < 2 )
+     {
+ 	Tcl_AppendResult( interp, "wrong # args: should be \"", objv[0], " option ?arg arg ...?\"", NULL );
+@@ -399,6 +389,7 @@
+ {
+     Soggy* soggyPtr = (Soggy*) clientdata;
+ 
++    assert(soggyPtr != NULL);
+     
+     if ( eventPtr->type == Expose )
+     {
+@@ -549,7 +540,142 @@
+ 
+     return TCL_OK;
+ }
++
++#elif defined(USE_APPLE_AGL)
++/* we don't use CGL; this is a newer interface in OS X that 
++   doesn't seem to have the hooks needed to embed in a window. */
++#define CLE(x) do { \
++    CGLError nerr = x; \
++    if(nerr != 0) { \
++        printf("%s:%d - %s failed: %s\n", __FILE__, __LINE__,  \
++               #x, CGLErrorString(nerr));  \
++        exit(EXIT_FAILURE); \
++    }  \
++} while(0)
++#define ale(str) do { \
++    GLenum nerr = aglGetError(); \
++    if(nerr != AGL_NO_ERROR) { \
++        printf("%s:%d - %s failed: %s\n", __FILE__, __LINE__,  \
++               str, aglErrorString(nerr));  \
++        exit(EXIT_FAILURE); \
++    }  \
++} while(0)
++
++
++static int OpenGLSetup( Soggy* soggyPtr, Tcl_Interp* interp )
++{
++    AGLPixelFormat pix;
++    AGLDevice gdevs[2];
++    /* long nvirt;  number of virtual screens */
++    GLsizei refresh_rate;
++    const GLint  attribs[] = 
++        { AGL_RGBA, AGL_DOUBLEBUFFER,
++#ifdef APPLE_FULLSCREEN
++          AGL_FULLSCREEN,
++#endif
++          AGL_RED_SIZE, soggyPtr->red_bits,
++          AGL_GREEN_SIZE, soggyPtr->green_bits,
++          AGL_BLUE_SIZE, soggyPtr->blue_bits,
++          AGL_ALPHA_SIZE, soggyPtr->alpha_bits,
++          AGL_ACCUM_RED_SIZE, soggyPtr->red_accum_bits,
++          AGL_ACCUM_GREEN_SIZE, soggyPtr->green_accum_bits,
++          AGL_ACCUM_BLUE_SIZE, soggyPtr->blue_accum_bits,
++          AGL_ACCUM_ALPHA_SIZE, soggyPtr->alpha_accum_bits,
++          AGL_STENCIL_SIZE, soggyPtr->stencil_bits,
++          AGL_DEPTH_SIZE, soggyPtr->depth_bits,
++          None };
++
++    /* choose the last device available.  The hopeful hack
++       here is that there will be two devices, the internal
++       and the external, or just one, mirrored on to the
++       external display.  The second one may be the external
++       in either case.  There should probably be a scheme
++       for overriding this decision */
++    /* alternatively, it may be good to call DMMirrorDevices
++       to force the presentation into the right state. */
++    GDHandle hDevice = NULL;
++    GDHandle iDevice;
++    for (iDevice = GetDeviceList(); 
++         iDevice != NULL; 
++         iDevice = GetNextDevice(hDevice)) {
++        hDevice = iDevice;
++        printf("has a device %d\n", (*hDevice)->gdRefNum);
++    }
++    // hDevice = GetMainDevice();
++    
++    assert(hDevice != NULL);
++    gdevs[0] = hDevice;
++    gdevs[1] = NULL;
++    
++    assert(soggyPtr != NULL);
++    assert(interp != NULL);
++    printf("attempting to create context for apple\n");
++    ale("pre opengl setup");
++    pix = aglChoosePixelFormat(gdevs, 1, attribs);
++    ale("aglChoosePixelFormat");
++    assert(pix != NULL);
++    
++    soggyPtr->pl.context = aglCreateContext(pix, last_created_context);
++    ale("aglCreateContext");
++    assert( soggyPtr->pl.context );
++    
++    assert(aglDescribePixelFormat( pix, AGL_RED_SIZE, &soggyPtr->red_bits) == GL_TRUE);
++    assert(aglDescribePixelFormat( pix, AGL_GREEN_SIZE, &soggyPtr->green_bits) == GL_TRUE);
++    assert(aglDescribePixelFormat( pix, AGL_BLUE_SIZE, &soggyPtr->blue_bits) == GL_TRUE);
++    assert(aglDescribePixelFormat( pix, AGL_ALPHA_SIZE, &soggyPtr->alpha_bits) == GL_TRUE);
++    assert(aglDescribePixelFormat( pix, AGL_ACCUM_RED_SIZE, &soggyPtr->red_accum_bits) == GL_TRUE);
++    assert(aglDescribePixelFormat( pix, AGL_ACCUM_GREEN_SIZE, &soggyPtr->green_accum_bits) == GL_TRUE);
++    assert(aglDescribePixelFormat( pix, AGL_ACCUM_BLUE_SIZE, &soggyPtr->blue_accum_bits) == GL_TRUE);
++    assert(aglDescribePixelFormat( pix, AGL_ACCUM_ALPHA_SIZE, &soggyPtr->alpha_accum_bits) == GL_TRUE);
++    assert(aglDescribePixelFormat( pix, AGL_STENCIL_SIZE, &soggyPtr->stencil_bits) == GL_TRUE);
++    assert(aglDescribePixelFormat( pix, AGL_DEPTH_SIZE, &soggyPtr->depth_bits) == GL_TRUE);
++    ale("aglDescribePixelFormat");
++    
++#ifdef APPLE_FULLSCREEN
++    /* should really support configurable screen size -- if we
++       don't change the video mode, X might be less likely to
++       cash */
++    /* some code from http://developer.apple.com/qa/qa2001/qa1209.html -- 
++     which also describes full screen CGL... */
++    
++    // both are -1. printf("%d x %d", soggyPtr->glwidth, soggyPtr->glheight);
++    // printf("%d x %d", soggyPtr->width, soggyPtr->height);
++    // use run_presentation(screen_size=(1024,768)) for speed,
++    // or (800,600) for likely portability.
++    refresh_rate = 60; /* had been zero, which worked with only some projectors. */
++    aglSetFullScreen (soggyPtr->pl.context, soggyPtr->width, 
++                      soggyPtr->height, refresh_rate, 0);
++    ale("aglSetFullScreen");
++    { 
++        /* just in case we asked for something agl wouldn't give (?),
++           use the code suggested by apple */
++        GLint displayCaps [3];
++        aglGetInteger (soggyPtr->pl.context, AGL_FULLSCREEN, displayCaps);
++        glViewport (0, 0, displayCaps[0], displayCaps[1]);
++        // glViewport( 0, 0, soggyPtr->width, soggyPtr->height );
++    }
++#else
++    /* code that doesn't quite work for running within a tk window. */
++    // soggyPtr->pl.draw = TkMacOSXGetDrawablePort(Tk_WindowId(soggyPtr->tkwin));
++    soggyPtr->pl.draw = TkMacOSXGetDrawablePort(soggyPtr->tkwin);
++    //  GetWindowPort(soggyPtr->tkwin);
++    assert( soggyPtr->pl.draw !=NULL);
++    SetPort(GetWindowPort(soggyPtr->pl.draw));
++    assert( aglSetDrawable(soggyPtr->pl.context, 
++                           GetWindowPort(soggyPtr->pl.draw)) == GL_TRUE );
++    ale("aglSetDrawable");
++#endif
++    
++    aglDestroyPixelFormat( pix );
++    ale("aglDestroyPixelFormat");
++    
++    last_created_context = soggyPtr->pl.context;
++    return TCL_OK;
++}
++
++
+ #else
++
+ /*
+  * this is the X version of OpenGLSetup, which uses glx
+  */
+@@ -583,7 +709,7 @@
+ 	    soggyPtr->stencil_bits );
+ #endif
+     
+-    soggyPtr->cx = NULL;
++    soggyPtr->pl.cx = NULL;
+     
+     vi = glXChooseVisual( soggyPtr->dpy, Tk_ScreenNumber( soggyPtr->tkwin ), attributeList );
+     if ( vi == NULL )
+@@ -592,13 +718,13 @@
+ 	return TCL_ERROR;
+     }
+ 
+-    soggyPtr->cx = glXCreateContext( soggyPtr->dpy, vi, last_created_context, GL_TRUE );
+-    if ( soggyPtr->cx == NULL )
++    soggyPtr->pl.cx = glXCreateContext( soggyPtr->dpy, vi, last_created_context, GL_TRUE );
++    if ( soggyPtr->pl.cx == NULL )
+     {
+ 	Tcl_SetResult( interp, "failed to create rendering context", TCL_STATIC );
+ 	return TCL_ERROR;
+     }
+-    last_created_context = soggyPtr->cx;
++    last_created_context = soggyPtr->pl.cx;
+ 
+     cmap = XCreateColormap( soggyPtr->dpy, XRootWindow( soggyPtr->dpy, Tk_ScreenNumber( soggyPtr->tkwin ) ),
+ 			    vi->visual, AllocNone );
+@@ -621,33 +747,32 @@
+ 
+ static int OpenGLWrapEval( Soggy* soggyPtr, Tcl_Obj* evalobj )
+ {
+-#ifdef WIN32
+-    HDC hdc;
+-#endif
+     int ret;
+-
+ #ifdef WIN32
+-    hdc = GetDC( soggyPtr->hwnd );
++    HDC hdc = GetDC( soggyPtr->hwnd );
+     wglMakeCurrent( hdc, soggyPtr->hglrc );
++    ret = Tcl_GlobalEvalObj( soggyPtr->interp, evalobj );
++    wglMakeCurrent( NULL, NULL );
++    ReleaseDC( soggyPtr->hwnd, hdc );
++#elif defined(USE_APPLE_AGL)
++    assert(soggyPtr != NULL);
++    assert(soggyPtr->pl.context != NULL);
++    aglSetCurrentContext(soggyPtr->pl.context);
++    aglUpdateContext(soggyPtr->pl.context);
++    ret = Tcl_GlobalEvalObj( soggyPtr->interp, evalobj );
++    aglSetCurrentContext(NULL);
+ #else
++    
+ #if 0
+     printf( "display: %08x\n", soggyPtr->dpy );
+     printf( "windowid: %08x\n", Tk_WindowId( soggyPtr->tkwin ) );
+-    printf( "context: %08x\n", soggyPtr->cx );
++    printf( "context: %08x\n", soggyPtr->pl.cx );
+ #endif
+     glXWaitX();
+-    glXMakeCurrent( soggyPtr->dpy, Tk_WindowId( soggyPtr->tkwin ), soggyPtr->cx );
+-#endif
+-
++    glXMakeCurrent( soggyPtr->dpy, Tk_WindowId( soggyPtr->tkwin ), soggyPtr->pl.cx );
+     ret = Tcl_GlobalEvalObj( soggyPtr->interp, evalobj );
+-
+-#ifdef WIN32
+-    wglMakeCurrent( NULL, NULL );
+-    ReleaseDC( soggyPtr->hwnd, hdc );
+-#else
+     glXMakeCurrent( Tk_Display( soggyPtr->tkwin ), None, NULL );
+ #endif
+-
+     return ret;
+ }
+     
+@@ -655,6 +780,8 @@
+ {
+     Soggy* soggyPtr = (Soggy*)clientdata;
+ 
++    assert(soggyPtr != NULL);
++
+     soggyPtr->updatePending = 0;
+     
+     if ( ! Tk_IsMapped( soggyPtr->tkwin ) )
+@@ -675,7 +802,7 @@
+ #ifdef WIN32
+ 	ShowCursor( 0 );
+ #else
+-	Tk_DefineCursor( soggyPtr->tkwin, soggyPtr->offcursor );
++	Tk_DefineCursor( soggyPtr->tkwin, soggyPtr->pl.offcursor );
+ #endif
+ 	soggyPtr->cursorstate = 0;
+     }
+@@ -687,8 +814,14 @@
+ 	hdc = GetDC( soggyPtr->hwnd );
+ 	wglMakeCurrent( hdc, soggyPtr->hglrc );
+ 	g_saveswap = hdc;
++#elif defined(USE_APPLE_AGL)
++        assert(soggyPtr != NULL);
++        assert(soggyPtr->pl.context != NULL);
++        aglSetCurrentContext(soggyPtr->pl.context);
++        aglUpdateContext(soggyPtr->pl.context);
++	g_saveswap = soggyPtr; /* I'd bet. */
+ #else
+-	glXMakeCurrent( soggyPtr->dpy, Tk_WindowId( soggyPtr->tkwin ), soggyPtr->cx );
++	glXMakeCurrent( soggyPtr->dpy, Tk_WindowId( soggyPtr->tkwin ), soggyPtr->pl.cx );
+ 	g_saveswap = soggyPtr;
+ #endif
+ 
+@@ -700,6 +833,9 @@
+ #ifdef WIN32
+ 	wglMakeCurrent( NULL, NULL );
+ 	ReleaseDC( soggyPtr->hwnd, hdc );
++#elif defined(USE_APPLE_AGL)
++        assert(soggyPtr != NULL);
++        aglSetCurrentContext(NULL);
+ #else
+ 	glXMakeCurrent( soggyPtr->dpy, None, NULL );
+ #endif
+@@ -710,6 +846,9 @@
+ {
+ #ifdef WIN32
+     SwapBuffers( g_saveswap );
++#elif defined(USE_APPLE_AGL)
++    aglSwapBuffers( g_saveswap->pl.context );
++    ale ( "aglSwapBuffers");
+ #else
+     if ( g_saveswap )
+ 	glXSwapBuffers( g_saveswap->dpy, Tk_WindowId( g_saveswap->tkwin ) );
+@@ -722,10 +861,14 @@
+ 
+ #ifdef WIN32
+     wglDeleteContext( soggyPtr->hglrc );
++#elif defined(USE_APPLE_AGL)
++    aglSetCurrentContext(NULL);
++    if ( soggyPtr->pl.context )
++      aglDestroyContext(soggyPtr->pl.context); 
+ #else
+     glXMakeCurrent( soggyPtr->dpy, None, NULL );
+-    if ( soggyPtr->cx )
+-	glXDestroyContext( soggyPtr->dpy, soggyPtr->cx );
++    if ( soggyPtr->pl.cx )
++	glXDestroyContext( soggyPtr->dpy, soggyPtr->pl.cx );
+ #endif
+     
+     Tk_FreeConfigOptions( (char*)soggyPtr, soggyPtr->optionTable, soggyPtr->tkwin );
+@@ -751,5 +894,10 @@
+ #endif
+ 
+ /** Local Variables: **/
++/** tab-width: 8 **/
++/** c-indent-level: 4 **/
++/** c-basic-offset: 4 **/
+ /** dsp-name:"slithy" **/
+ /** End: **/
++
++/* vim:set ts=8: */
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/presentation.py slithy-20030706/slithy/presentation.py
+--- slithy-20030706/slithy/presentation.py	Sun Jul  6 11:04:02 2003
++++ slithy-20030706/slithy/presentation.py	Wed Mar  3 15:23:36 2004
+@@ -18,6 +18,9 @@
+ click_interval = 100
+ movement_threshold = 10
+ mousehide_delay = 3000
++presentation_start = time.time()
++quicktime_time = 0.0
++quicktime_framerate = 10 # fps
+ 
+ try:
+     import dxvideo
+@@ -94,11 +97,16 @@
+         self.cursor = 1
+         self.grab_filename = None
+         self.grab_next = 1
++        self.advance_count = 0
+         self.object = None
+ 
+         if self.visual:
+             visual = self.visual
+ 
++        if(self.quicktime):
++            if not os.path.exists("quicktime-frames"):
++                os.mkdir("quicktime-frames")
++
+         try:
+             if visual:
+                 d = system.parse_visual_arg( visual )
+@@ -232,7 +240,9 @@
+         try:
+             seg = self.segments[num]
+         except IndexError:
+-            if self.auto:
++            if self.auto and not self.quicktime:
++                # loop if we're on auto-play, unless we're writing frames
++                # for a movie.
+                 seg = self.segments[0]
+                 self.segment_num = 0
+             else:
+@@ -272,6 +282,7 @@
+ 
+     def advance( self ):
+         if self.pause:
++            self.advance_count += 1
+             if self.idle_id:
+                 self.s.after_cancel( self.idle_id )
+                 self.idle_id = None
+@@ -282,7 +293,10 @@
+         dobj.notify( 0 )
+         self.object = anim
+         self.pdict = { 't' : 0.0 }
+-        self.start_time = time.time()
++        if(self.quicktime):
++            self.start_quicktime_time = quicktime_time
++        else:
++            self.start_time = time.time() 
+         self.start_t = 0.0
+         self.frame_count = 0
+         self.idle_id = self.s.after( self.timeout_interval, self.next_frame )
+@@ -311,14 +325,26 @@
+         
+     
+     def next_frame( self ):
+-        now = time.time()
+-        t = now - self.start_time + self.start_t
++        global quicktime_time
++        if(self.quicktime):
++            quicktime_time += 1.0/quicktime_framerate
++            t = quicktime_time - self.start_quicktime_time
++        else:
++            now = time.time() 
++            # start_t always seems to be zero, start time is when the
++            # segment began.  now is.
++            t = now - self.start_time + self.start_t
++
+         if hasattr( self.object, 'length') and t > self.object.length:
+             t = self.object.length
+ 
+         self.frame_count += 1
+         self.pdict['t'] = t
+-        self.s.redraw()
++        if(self.quicktime):
++            self.s.redraw()
++            self.grab_screen()
++        else:
++            self.s.redraw()
+ 
+         if t >= self.object.length:
+             self.idle_id = None
+@@ -393,11 +419,22 @@
+         self.s.focus()
+ 
+     def grab_screen( self ):
+-        self.grab_filename = 'slithy%04d.png' % (self.grab_next,)
+-        self.grab_next += 1
+-        self.s.redraw()
+-
++        global presentation_start, quicktime_time
++        if(self.quicktime):
++            self.grab_filename = 'quicktime-frames/slithy%03d-%04d-%5.3f.png' % (self.advance_count,
++                                                                self.grab_next,
++                                                                quicktime_time)
++            self.grab_next += 1
++            self.s.redraw()
++        else:
++            self.grab_filename = 'slithy%04d-%5.3f.png' % (self.grab_next,
++                                                           time.time() -
++                                                           presentation_start)
++            self.grab_next += 1
++            self.s.redraw()
++            
+     key_dispatch = { 'escape' : quit,
++                     'q' : quit,
+                      'space' : advance,
+                      'tab' : toggle_fullscreen,
+                      'less' : scan_backwards,
+@@ -474,7 +511,7 @@
+         self.s.unbind( '<ButtonRelease-1>', self.mouseinfo[1] )
+         del self.mouseinfo
+ 
+-    def __init__( self, start_fullscreen, start_safe, auto, visual ):
++    def __init__( self, start_fullscreen, start_safe, auto, visual, quicktime ):
+         self.timeout_interval = timeout_interval
+         self.fullscreen = start_fullscreen
+         self.segments = []
+@@ -485,6 +522,7 @@
+             del self.key_dispatch['escape']
+         self.auto = auto
+         self.visual = visual
++        self.quicktime = quicktime
+ 
+ 
+ def usage():
+@@ -494,13 +532,14 @@
+     print '  -f, --fullscreen      start in fullscreen mode'
+     print '  -s, --safe            disable Esc key'
+     print '  -a, --auto            auto-advance through presentation'
++    print '  -q, --quicktime       output frames for quicktime movie generation (mac)'
+     print 
+     print '  -v, --visual=VIS      request VIS visual'
+     
+ 
+ try:
+-    opts, args = getopt.getopt( sys.argv[1:], '?v:fsa',
+-                                ['help', 'visual=', 'fullscreen', 'safe', 'auto'] )
++    opts, args = getopt.getopt( sys.argv[1:], '?v:fsaq',
++                                ['help', 'visual=', 'fullscreen', 'safe', 'auto', 'quicktime' ] )
+ except getopt.GetoptError:
+     usage()
+     sys.exit( 1 )
+@@ -508,6 +547,7 @@
+ fullscreen = 0
+ safe = 0
+ auto = 0
++quicktime = False
+ visual = os.getenv( 'SLITHY_VISUAL', None )
+ 
+ for o, a in opts:
+@@ -522,10 +562,12 @@
+         safe = 1
+     elif o in ('-a', '--auto'):
+         auto = 1
++    elif o in ('-q', '--quicktime'):
++        quicktime = True 
+ 
+ 
+ 
+-curr = PresentationViewer( fullscreen, safe, auto, visual )
++curr = PresentationViewer( fullscreen, safe, auto, visual, quicktime )
+ 
+ 
+ bookmark = curr.add_bookmark
+diff -N --exclude examples --exclude Pmw --exclude techfest --exclude .gdb_history --exclude *.pyc --exclude *.o --exclude *.so --exclude .elog -ru slithy-20030706/slithy/sl_common.h slithy-20030706/slithy/sl_common.h
+--- slithy-20030706/slithy/sl_common.h	Wed Dec 31 16:00:00 1969
++++ slithy-20030706/slithy/sl_common.h	Fri Nov 21 21:00:43 2003
+@@ -0,0 +1,49 @@
++
++#ifndef _MAKEDEPEND
++#ifndef _SL_COMMON_H
++#define _SL_COMMON_H
++
++#ifdef WIN32
++#define _WIN32_WINNT 0x0500
++#include <windows.h>
++#else
++#include <stdio.h>
++#include <stdlib.h>
++#endif
++
++#include <math.h>
++
++#ifdef WIN32
++#include <gl\gl.h>
++#include <gl\glu.h>
++#elif defined(__APPLE__)
++#include <gl.h>
++#include <glu.h>
++#include <agl.h>
++#else
++#include <GL/gl.h>
++#include <GL/glu.h>
++#include <GL/glx.h>
++#endif
++
++#include <assert.h>
++
++#define MAC_OSX_TK
++#include <tcl.h>
++#include <tk.h>
++
++/* include Python last, allowing some precompiled mac headers to be included without warning.  */
++#ifdef _DEBUG
++#undef _DEBUG
++#include <Python.h>
++#define _DEBUG
++#else
++#include <Python.h>
++#endif
++
++
++/* multiple inclusion */
++#endif
++/* _MAKEDEPEND */
++#endif
++

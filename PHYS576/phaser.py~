@@ -1,0 +1,728 @@
+from slithy.library import *
+
+from fonts import fonts
+
+from __future__ import division
+
+# define the hand shape 
+hand = Path().moveto(0,1).arc(0,0,90,270,1) 
+hand.qcurveto(0.5,-0.25,8,-0.125).arc(8,0,270,90,0.125) 
+hand.qcurveto(0.5,0.25,0,1).closepath() 
+# Type 1 font file
+
+pointer = Path().moveto(0,0).lineto(1,0)
+pointer2 = Path().moveto(0,0).lineto(0,1)
+
+def phaser( angle = (SCALAR, 0, 99999999), arrow_color = (COLOR, black), background_color = (COLOR, white) ):
+    set_camera( Rect(-10,-10,10,10) )
+    #clear( white )
+    color(background_color)
+    dot(9)
+    color(black)
+    thickness( 0.5 )
+    circle( 9, 0, 0 )
+    push() # draw the diamond-shaped markers 
+    for i in range(12): 
+        push() 
+        translate( 7.5, 0 ) 
+        scale( 0.5, 0.125 ) 
+        rotate( 45 ) 
+        rectangle( -1, -1, 1, 1 ) 
+        pop() 
+        rotate( 30 ) 
+    pop() 
+
+
+    push() # draw the hand 
+    color( arrow_color ) 
+    dot(0.5)
+    rotate( 90-angle )
+    scale( 0.7*8 )
+    #fill( hand )
+    widestroke(pointer,0.125)
+    arrow(pointer,(0,4.0/8,5.0/8))
+    pop()
+
+def momentum( x1 = (SCALAR, 0, 1), x2 = (SCALAR, 0, 1) ):
+    set_camera( Rect(-4,-1,11,1) )
+
+    push()
+    color(red)
+    translate(10-x1*10,0)
+    scale(-(.1+x2-x1)*10,1)
+    widestroke(pointer,1)
+    arrow(pointer,(0,2,.25/(.1+x2-x1)))
+    pop()
+
+    color(black)
+    text(3.5-.1,0-.1, "Current", font=fonts["title"], size=1, justify=0.5)
+    color(white)
+    text(3.5,0, "Current", font=fonts["title"], size=1, justify=0.5)
+
+def momentum2( x1 = (SCALAR, 0, 1), x2 = (SCALAR, 0, 1) ):
+    set_camera( Rect(-1,-1,1,15) )
+
+    push()
+    color(red)
+    translate(0,x1*10)
+    scale(1,(.1+x2-x1)*10)
+    push()
+    rotate(90)
+    widestroke(pointer,1)
+    arrow(pointer,(0,2,.25/(.1+x2-x1)))
+    pop()
+    pop()
+
+    color(black)
+    text(0-.1,7-.1,"Current", font=fonts["title"], size=1, justify=0.5)
+    color(white)
+    text(0,7, "Current", font=fonts["title"], size=1, justify=0.5)
+
+def momentum3( x1 = (SCALAR, 0, 1), x2 = (SCALAR, 0, 1) ):
+    set_camera( Rect(-1,-1,1,15) )
+
+    push()
+    color(red)
+    translate(0,14-x1*10)
+    scale(1,(.1+x2-x1)*10)
+    push()
+    rotate(-90)
+    widestroke(pointer,1)
+    arrow(pointer,(0,2,.25/(.1+x2-x1)))
+    pop()
+    pop()
+
+    color(black)
+    text(0-.1,7-.1,"Current", font=fonts["title"], size=1, justify=0.5)
+    color(white)
+    text(0,7, "Current", font=fonts["title"], size=1, justify=0.5)
+
+grey = Color( 0.75, 0.75, 0.75 )
+
+crazyshape = Path().moveto(0,0)
+
+pts = [0,2,20,2,20,0,0,0,0,2,5,7,25,7,20,2,25,7,25,5,20,0]
+
+i = 0
+while i < len(pts):
+    crazyshape.lineto(pts[i],pts[i+1])
+    i += 2
+
+crazyshape.closepath()
+
+def superconductor():
+    set_camera( Rect(0,0,25.5,7.5) )
+
+    color(grey)
+    rectangle(0,0,20,2)
+    polygon(0,2,5,7,25,7,20,2)
+    polygon(20,2,25,7,25,5,20,0)
+
+    color(black)
+    stroke(crazyshape)
+
+bg = Fill( style = 'horz', color = black, color2 = blue )
+
+
+def superconductor_slide():
+    c = get_camera()
+
+    sv = c.top(.8).bottom(.6).inset(.25)
+    s = Drawable(
+        sv,
+        superconductor,
+        _alpha = 0
+        )
+
+    r = get_camera().top( 0.2 ).bottom( 0.5 ).inset( 0.05 )
+    title = Text( r, text = 'Superconductors', font = fonts['title'], size = 30, justify = 0.5,
+                  color = yellow, _alpha = 0 )
+
+    start_animation(bg,title,s)
+
+    parallel()
+    fade_in(0.5,title)
+    fade_in(0.5,s)
+    end()
+
+    pause()
+
+    parallel()
+    fade_out(0.5,title)
+    fade_out(0.5,s)
+    end()
+
+    return end_animation()
+
+brightgreen = Color( 0, 1, 0 )
+
+def cooper_pair( x = (SCALAR, 0, 1), y = (SCALAR, 0, 1), pair_color = (COLOR, brightgreen) ):
+
+    height = 5.5
+    width = 1.5
+    
+    set_camera( Rect(-0.5,-1,2,6.5) )
+
+    color(black)
+    thickness(0.05)
+    circle(0.2,x*width,y*height+0.15)
+    circle(0.2,x*width,y*height-0.15)
+
+    color(pair_color)
+    dot(0.2,x*width,y*height+0.15)
+    dot(0.2,x*width,y*height-0.15)
+
+length_arrow = Path().moveto(0,-.5).lineto(0,+.5)
+
+def length_indicator():
+    set_camera( Rect(-1,-1.5,2,1.5) )
+
+    color(yellow)
+    widestroke(length_arrow,.1)
+    arrow(length_arrow, (0,.3,.4), (0,.3,.4), )
+
+    text(.75,0,"L",size=1,font=fonts["roman"])
+
+def dramatic_phase_slide(): 
+    c = get_camera()
+    d1v = viewport.interp( c.bottom(.8).inset(.2).restrict_aspect(1),
+                           c.bottom(.8).left(.25).inset(.05).restrict_aspect(1),
+                           c.bottom(.2).left(.25).inset(.05).restrict_aspect(1),
+                           c.bottom(.3).inset(.05).restrict_aspect(1),
+                           c.right(.25).top(.6).inset(.2).restrict_aspect(1)
+                           )
+
+    d2v = viewport.interp( c.bottom(.8).left(.5).right(.5).inset(.05).restrict_aspect(1),
+                           c.bottom(.2).left(.5).right(.5).inset(.05).restrict_aspect(1),
+                           c.right(.25).bottom(.6).inset(.2).restrict_aspect(1)
+                           )
+    d3v = viewport.interp( c.bottom(.8).right(.5).left(.5).inset(.05).restrict_aspect(1),
+                           c.bottom(.2).right(.5).left(.5).inset(.05).restrict_aspect(1),
+                           )
+    d4v = viewport.interp( c.bottom(.8).right(.25).inset(.05).restrict_aspect(1),
+                           c.bottom(.2).right(.25).inset(.05).restrict_aspect(1)
+                           )
+    
+    d1 = Drawable( d1v, 
+                   phaser, 
+                   angle = 0,
+                   arrow_color = green,
+                   _alpha = 0)
+
+    d2 = Drawable( d2v, 
+                   phaser, 
+                   angle = 45,
+                   arrow_color = green,
+                   _alpha = 0)
+
+    d3 = Drawable( d3v, 
+                   phaser, 
+                   angle = 90,
+                   arrow_color = green,
+                   _alpha = 0)
+
+    d4 = Drawable( d4v, 
+                   phaser, 
+                   angle = 135,
+                   arrow_color = green,
+                   _alpha = 0)
+
+    
+
+    title_phase_v = viewport.interp(
+        get_camera().top( 0.2 ).bottom( 0.5 ).inset( 0.05 ),
+        get_camera().top( 0.2 ).bottom( 0.5 ).left(.1),
+        )
+    title_phase = Text( title_phase_v, text = 'The Phase', font = fonts['title'], size = 30, justify = 0.5,
+                  color = yellow, _alpha = 0 )
+    
+    start_animation( bg, title_phase, d2, d3, d4, d1 )
+
+    pause()
+
+    fade_in( 5, title_phase )
+    
+    pause()
+
+    fade_in( 0.5, d1)
+    
+    pause()
+
+    linear( 5, d1.angle, 360*4 )
+
+    pause()
+
+    smooth( 2, d1v.x, 1)
+
+    parallel()
+    fade_in( 1, d2)
+    fade_in( 1, d3)
+    fade_in( 1, d4)
+    end()
+
+
+    dB1v = viewport.interp(
+        get_camera().bottom( 0.15 ),
+        get_camera()
+        )
+    dB1 = Text( dB1v, text = [invisible, 'current = ', white, 'momentum = wavelength', invisible, ' = spatial variation'], font = fonts['roman'], size = 16, justify = 0.5,
+                  color = white, _alpha = 0 )
+
+    dB2v = viewport.interp(
+        get_camera().bottom( 0.15 ),
+        get_camera()
+        )
+    dB2 = Text( dB2v, text = ['current = momentum = wavelength = spatial variation'], font = fonts['roman'], size = 16, justify = 0.5,
+                  color = white, _alpha = 0 )
+    pause()
+    enter(dB1, dB2)
+    fade_in(0.5,dB1)
+    pause()
+    fade_in(0.5,dB2)
+    pause()
+
+    parallel()
+    fade_out(0.5,dB1)
+    fade_out(0.5,dB2)
+    end()
+
+    mv = c.bottom(.2).inset(.01)    
+    m = Drawable(  mv, 
+                   momentum, 
+                   x1 = 0,
+                   x2 = 0,
+                   _alpha = 0)
+
+    enter(m)
+
+    set(d1.angle,0)
+    parallel()
+    #linear(4,d1.angle,720)
+    #linear(4,d2.angle,720+45)
+    #linear(4,d3.angle,720+90)
+    #linear(4,d4.angle,720+135)
+
+    serial()
+    parallel()
+    fade_in(1, m)
+    linear( 2, m.x2, 1)
+    end()
+
+    parallel()
+    linear( 2, m.x1, 1)
+    serial()
+    wait(1)
+    fade_out(1, m)
+    end()
+    end()
+    end()
+    
+    end()
+
+    exit(m)
+
+    pause()
+
+    parallel()
+    smooth( 2, d1v.x, 2)
+    smooth( 2, d2v.x, 1)
+    smooth( 2, d3v.x, 1)
+    smooth( 2, d4v.x, 1)
+    end()
+
+    sv = viewport.interp(
+        c.top(.75).bottom(.6).inset(.125),
+        c.top(.6).inset(.25)
+        )
+    s = Drawable(
+        sv,
+        superconductor,
+        _alpha = 0
+        )
+
+    enter(s)
+    fade_in(0.5,s)
+
+    pause()
+
+    parallel()
+    linear(1,d2.angle,0) #720)
+    linear(1,d3.angle,0) #720)
+    linear(1,d4.angle,0) #720)
+    end()
+
+    pause()
+
+    parallel()
+    linear(2,d1.angle,360*4)
+    linear(2,d2.angle,360*4)
+    linear(2,d3.angle,360*4)
+    linear(2,d4.angle,360*4)
+    end()
+
+    pause()
+
+    parallel()
+    fade_out(1,d2)
+    fade_out(1,d3)
+    fade_out(1,d4)
+    end()
+
+    exit(d3,d4)
+
+    lift(d1)
+
+    smooth(2,d1v.x,3)
+    
+    linear(2,d1.angle,360*5)
+    set(d1.angle,360*6)
+
+    pause()
+
+
+    title_josephson_v = viewport.interp(
+        get_camera().top( 0.2 ).bottom( 0.5 ).right(.1).inset( 0.45 ),
+        get_camera().top( 0.2 ).bottom( 0.5 ).inset( 0.45 ),
+        )
+    title_josephson = Text( title_josephson_v, text = 'Josephson Junctions', font = fonts['title'], size = 30, justify = 0.0, color = yellow )
+
+    enter(title_josephson)
+
+    parallel()
+    linear(2,title_phase_v.x,1)
+    linear(2,title_phase.justify,1)
+    fade_out(1.5,title_phase)
+    linear(2,title_josephson_v.x,1)
+    linear(2,title_josephson.justify,0.5)
+    fade_in(2,title_josephson)
+    end()
+
+    exit(title_phase)
+
+    pause()
+
+    s2v = viewport.interp(
+        #c.top(.75).bottom(2.0/3).inset(.25)
+        c.bottom(.6).inset(.25)
+        )
+    s2 = Drawable(
+        s2v,
+        superconductor,
+        _alpha = 0
+        )
+
+    enter(s2)
+
+    set(d2v.x,3)
+    set(d2.arrow_color,red)
+    set(d2.angle,40)
+
+    parallel()
+    fade_out(2,title_josephson)
+    linear(2,sv.x,1)
+    linear(2,d1v.x,4)
+    fade_in(2,s2)
+    fade_in(2,d2)
+    end()
+
+    pause()
+
+    set(d1.angle,0)
+    parallel()
+    linear(6,d1.angle,720)
+    linear(6,d2.angle,1080+45/2)
+    end()
+
+    pause()
+
+    cpv = c.left(.25).inset(.1)
+
+    pair_coordinates = [
+        (0,0,0.95,0.5),
+        (0.3,0.05,0.8,1),
+        (0.7,0,0.85,0.4),
+        (1,0.15,0.75,2.0),
+        ]
+
+    pairs = [
+        Drawable(
+            cpv,
+            cooper_pair,
+            x = x,
+            y = y1,
+            _alpha = 0,
+        ) for x,y1,y2,p in pair_coordinates ]
+
+    enter(*pairs)
+
+    parallel()
+    for pair in pairs:
+        fade_in(0.5,pair)
+    end()
+
+    pause()
+
+    pairs_and_coordinates = zip(pairs,pair_coordinates)
+
+    #parallel()
+    #for pair, coordinates in pairs_and_coordinates:
+    #    linear(3,pair.y,coordinates[2])
+    #end()
+    #pause()
+
+    set(dB1v.x,1)
+    set(dB1.vjustify,0.5)
+    set(dB2v.x,1)
+    set(dB2.vjustify,0.5)
+
+    fade_in(0.5,dB1)
+
+    pause()
+
+    fade_in(0.5,dB2)
+
+    pause()
+
+    parallel()
+    fade_out(.5,dB1)
+    fade_out(.5,dB2)
+    end()
+
+    exit(dB1,dB2)
+
+    mv = c.left(.25).inset(.01)    
+    m = Drawable(  mv, 
+                   momentum2, 
+                   x1 = 0,
+                   x2 = 0,
+                   _alpha = 0)
+
+    enter(m)
+
+    serial()
+    
+    parallel()
+    fade_in(1, m)
+    linear( 2, m.x2, 1)
+    end()
+
+    parallel()
+    linear( 2, m.x1, 1)
+    serial()
+    wait(1)
+    parallel()
+    fade_out(1, m)
+    linear(3,pairs[2].y,pair_coordinates[2][2])
+    end()
+    end()
+
+    end()
+    end()
+
+    exit(m)
+
+    pause()
+
+    set(d1.angle,0)
+    set(d2.angle,45/2)
+    parallel()
+    linear(2,d1.angle,180)
+    linear(2,d2.angle,280)
+    end()
+
+    pause()
+
+    linear(3,pairs[0].y,pair_coordinates[0][2])
+
+    pause()
+    
+    parallel()
+    linear(2,d1.angle,340)
+    linear(2,d2.angle,480)
+    end()
+
+    pause()
+
+    linear(3,pairs[3].y,pair_coordinates[3][2])
+
+    pause()
+
+    parallel()
+    linear(2,d1.angle,520)
+    linear(2,d2.angle,580)
+    end()
+
+    pause()
+
+    linear(3,pairs[1].y,pair_coordinates[1][2])
+
+    pause()
+
+    parallel()
+    linear(2,d1.angle,750)
+    linear(2,d2.angle,650)
+    end()
+
+    pause()
+
+    mv = c.left(.25).inset(.01)    
+    m = Drawable(  mv, 
+                   momentum3, 
+                   x1 = 0,
+                   x2 = 0,
+                   _alpha = 0)
+
+    enter(m)
+
+    serial()
+    
+    parallel()
+    fade_in(1, m)
+    linear( 2, m.x2, 1)
+    end()
+
+    parallel()
+    linear( 2, m.x1, 1)
+    serial()
+    wait(1)
+    parallel()
+    fade_out(1, m)
+    linear(3,pairs[0].y,pair_coordinates[0][1])
+    end()
+    end()
+
+    end()
+
+    pause()
+
+    parallel()
+    linear(2,d1.angle,950)
+    linear(2,d2.angle,800)
+    linear(2,pairs[1].y,pair_coordinates[1][1])
+    end()
+    
+    parallel()
+    linear(2,d1.angle,1100)
+    linear(2,d2.angle,950)
+    linear(2,pairs[3].y,pair_coordinates[3][1])
+    end()
+
+    parallel()
+    linear(2,d1.angle,1200)
+    linear(2,d2.angle,1200+45/2)
+    linear(2,pairs[2].y,pair_coordinates[2][1])
+    end()
+
+    set(d1.angle,120+0)
+    set(d2.angle,120+45/2)
+    parallel()
+    linear(2,d1.angle,120+180)
+    linear(2,d2.angle,120+280)
+    linear(2,pairs[3].y,pair_coordinates[3][2])
+    end()
+
+    parallel()
+    linear(2,d1.angle,120+340)
+    linear(2,d2.angle,120+480)
+    linear(2,pairs[2].y,pair_coordinates[2][2])
+    end()
+
+    parallel()
+    linear(2,d1.angle,120+520)
+    linear(2,d2.angle,120+580)
+    linear(2,pairs[1].y,pair_coordinates[1][2])
+    end()
+
+    parallel()
+    linear(2,d1.angle,120+750)
+    linear(2,d2.angle,120+650)
+    linear(2,pairs[0].y,pair_coordinates[0][2])
+    end()
+
+    pause()
+
+    t = Text(c.bottom(.15).inset(.1), text = "How do we characterize this junction?", size=20, font=fonts["roman"], color=white, _alpha=0, justify=0.5)
+    t2 = Text(c.bottom(.15).inset(.1), text = "Critical Current:  I_0", size=20, font=fonts["roman"], color=white, _alpha=0, justify=0.5)
+
+    enter(t, t2)
+
+    parallel()
+    fade_in(1,t)
+    end()
+
+    pause()
+
+    fade_out(1,t)
+    fade_in(1,t2)
+
+    exit(t)
+
+    pause()
+
+    parallel()
+    linear(1,d1.angle,900)
+    linear(1,d2.angle,720)
+    end()
+
+    pause()
+
+    li = Drawable(c.inset(.35),length_indicator,_alpha=0)
+    enter(li)
+    fade_in(1,li)
+
+    pause()
+
+    parallel()
+    fade_out(1,li)
+    linear(0.5,d1.angle,720)
+    end()
+    
+    exit(li)
+
+    wait(0.5)
+
+    more_pair_coordinates = [
+        (0.10,0.03,0.80,0.8),
+        (0.20,0.12,0.75,0.6),
+        (0.60,0.05,0.95,1.6),
+        (0.95,0.10,0.90,1.2),
+        ]
+
+    more_pairs = [
+        Drawable(
+            cpv,
+            cooper_pair,
+            x = x,
+            y = y2,
+            _alpha = 0,
+        ) for x,y1,y2,p in more_pair_coordinates ]
+
+    more_pairs_and_coordinates = zip(more_pairs,more_pair_coordinates)
+
+    enter(*more_pairs)
+    parallel()
+    for pair in more_pairs:
+        fade_in(1,pair)
+    end()
+
+    pause()
+
+    set(d1.angle,0)
+    set(d2.angle,360)
+
+    duration=20
+    
+    parallel()
+    linear(duration,d1.angle,duration/0.5*360)
+    wave(d2.angle,mean=360,amplitude=15,period=0.5,duration=duration)
+
+    for pair, coordinate in pairs_and_coordinates+more_pairs_and_coordinates:
+        y1,y2,period = coordinate[1:]
+        wave(pair.y,mean=y2,amplitude=(y2-y1)*.05,period=period,duration=duration)
+    end()
+    
+
+    return end_animation() 
+dramatic_phase_slide = dramatic_phase_slide() 
+
+test_objects( phaser, dramatic_phase_slide )

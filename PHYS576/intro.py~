@@ -1,0 +1,18 @@
+from slithy.library import *
+
+def title_slide():
+    junk, title_v, junk, url_v = get_camera().ysplit( 1, 3, 1, 3, 2 )
+    title = Text( title_v.inset( 0.1 ), text = 'An Intuitive View of Superconducting Qubits', size = 30,
+                  font = fonts['body'], color = white, justify = 0.5, vjustify = 0.5, _alpha = 0.0 )
+    url = Text( url_v.inset( 0.1 ), text = 'Gregory Crosswhite', size = 14,
+                font = fonts['body'], color = 0.8, justify = 0.5, vjustify = 0.5, _alpha = 0.0 )
+
+    start_animation( bg, title, url )
+
+    fade_in( 0.5, title, url )
+    pause()
+    fade_out( 0.5, title, url )
+
+    return end_animation()
+title_slide = title_slide()
+

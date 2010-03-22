@@ -1,0 +1,45 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "diafont", "diafont\diafont.vcproj", "{6A4FAC33-2C7B-47A5-9A13-58D7090F7E01}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "diaimage", "diaimage\diaimage.vcproj", "{8E6D8441-C1E6-41EB-B668-635F20D9C951}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw", "draw\draw.vcproj", "{40B890EC-784A-4289-A5E3-2A7E15B4DEA9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dobj", "dobj\dobj.vcproj", "{2FC0E5E7-8674-4352-852A-8568295ADACB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dxvideo", "dxvideo\dxvideo.vcproj", "{DB8D3DFD-D072-417A-B255-70A1BF13CBAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{6A4FAC33-2C7B-47A5-9A13-58D7090F7E01}.Debug.ActiveCfg = Debug|Win32
+		{6A4FAC33-2C7B-47A5-9A13-58D7090F7E01}.Debug.Build.0 = Debug|Win32
+		{6A4FAC33-2C7B-47A5-9A13-58D7090F7E01}.Release.ActiveCfg = Release|Win32
+		{6A4FAC33-2C7B-47A5-9A13-58D7090F7E01}.Release.Build.0 = Release|Win32
+		{8E6D8441-C1E6-41EB-B668-635F20D9C951}.Debug.ActiveCfg = Debug|Win32
+		{8E6D8441-C1E6-41EB-B668-635F20D9C951}.Debug.Build.0 = Debug|Win32
+		{8E6D8441-C1E6-41EB-B668-635F20D9C951}.Release.ActiveCfg = Release|Win32
+		{8E6D8441-C1E6-41EB-B668-635F20D9C951}.Release.Build.0 = Release|Win32
+		{40B890EC-784A-4289-A5E3-2A7E15B4DEA9}.Debug.ActiveCfg = Debug|Win32
+		{40B890EC-784A-4289-A5E3-2A7E15B4DEA9}.Debug.Build.0 = Debug|Win32
+		{40B890EC-784A-4289-A5E3-2A7E15B4DEA9}.Release.ActiveCfg = Release|Win32
+		{40B890EC-784A-4289-A5E3-2A7E15B4DEA9}.Release.Build.0 = Release|Win32
+		{2FC0E5E7-8674-4352-852A-8568295ADACB}.Debug.ActiveCfg = Debug|Win32
+		{2FC0E5E7-8674-4352-852A-8568295ADACB}.Debug.Build.0 = Debug|Win32
+		{2FC0E5E7-8674-4352-852A-8568295ADACB}.Release.ActiveCfg = Release|Win32
+		{2FC0E5E7-8674-4352-852A-8568295ADACB}.Release.Build.0 = Release|Win32
+		{DB8D3DFD-D072-417A-B255-70A1BF13CBAB}.Debug.ActiveCfg = Debug|Win32
+		{DB8D3DFD-D072-417A-B255-70A1BF13CBAB}.Debug.Build.0 = Debug|Win32
+		{DB8D3DFD-D072-417A-B255-70A1BF13CBAB}.Release.ActiveCfg = Release|Win32
+		{DB8D3DFD-D072-417A-B255-70A1BF13CBAB}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

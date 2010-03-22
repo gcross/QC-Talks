@@ -1,0 +1,3 @@
+graphing_ts.lo graphing_ts.o: graphing_ts.c ../config.h
+
+../config.h:

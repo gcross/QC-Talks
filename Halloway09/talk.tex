@@ -1,0 +1,375 @@
+%@+leo-ver=4-thin
+%@+node:gcross.20090227161347.2:@thin talk.tex
+%@@language latex
+
+%@<< Preamble >>
+%@+node:gcross.20090227161347.3:<< Preamble >>
+\documentclass{beamer}
+
+\usepackage{comment}
+\usepackage{textpos}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  % or ...
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+
+
+\usepackage[english]{babel}
+% or whatever
+
+\usepackage[latin1]{inputenc}
+% or whatever
+
+\usepackage{times}
+\usepackage[T1]{fontenc}
+
+
+% Delete this, if you do not want the table of contents to pop up at            
+% the beginning of each subsection:                                             
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+%@-node:gcross.20090227161347.3:<< Preamble >>
+%@nl
+
+%@<< Title/Author Information >>
+%@+node:gcross.20090227161347.4:<< Title/Author Information >>
+\title{Divide and Conquer -- Quantum Style!}
+
+\author{G.~M.~Crosswhite}
+
+\institute{Department of Physics\\University of Washington}
+
+\date{Thursday, March 19, 2009}
+%@-node:gcross.20090227161347.4:<< Title/Author Information >>
+%@nl
+
+\begin{document}
+
+%@+others
+%@+node:gcross.20090301204519.10:Title
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%@-node:gcross.20090301204519.10:Title
+%@+node:gcross.20090228211431.3:General Strategy
+\begin{frame}{The Grand Strategy}
+    \begin{enumerate} 
+        \item<1-> Divide
+        \item<2-> Conquer
+        \item<3-> Win
+    \end{enumerate} 
+\end{frame} 
+%@-node:gcross.20090228211431.3:General Strategy
+%@+node:gcross.20090301204519.4:Dinosaur
+\begin{frame}{Will the Dinosaur Eat the Man?}
+\begin{center}
+\includegraphics<1>[height=7cm]{dinodiagram-1.pdf}
+\includegraphics<2>[height=7cm]{dinodiagram-2.pdf}
+\includegraphics<3>[height=7cm]{dinodiagram-3.pdf}
+\includegraphics<4>[height=7cm]{dinodiagram-4.pdf}
+\includegraphics<5>[height=7cm]{dinodiagram-5.pdf}
+\includegraphics<6>[height=7cm]{dinodiagram-6.pdf}
+\includegraphics<7>[height=7cm]{dinodiagram-7.pdf}
+\includegraphics<8>[height=7cm]{dinodiagram-8.pdf}
+\includegraphics<9>[height=7cm]{dinodiagram-9.pdf}
+\end{center}
+\end{frame}
+%@-node:gcross.20090301204519.4:Dinosaur
+%@+node:gcross.20090301204519.11:Outline
+\begin{frame}{Outline}
+  \tableofcontents
+  % You might wish to add the option [pausesections]                            
+\end{frame}
+
+%@-node:gcross.20090301204519.11:Outline
+%@+node:gcross.20090227161347.5:Motivation
+\section{Motivation}
+%@+node:gcross.20090227161347.9:Classic Systems
+\subsection{Classic Divide and Conquer}
+
+\begin{frame}{A Classical System}
+\begin{center}
+\includegraphics<1>[height=3cm]{fluiddiagram-1.pdf}
+\includegraphics<2->[height=3cm]{fluiddiagram-2.pdf}
+\end{center}
+
+\begin{columns}[t]
+\begin{column}{4cm}
+\only<3->{
+Step 1 -- Divide!
+$$
+\begin{aligned}
+A_0&=27\,\text{kL}\\
+B_0&=40\,\text{kL}\\
+C_0&=22\,\text{kL}\\
+D_0&=16\,\text{kL}\\
+\vec{S_0}&=\begin{bmatrix}A_0\,\,B_0\,\,C_0\,\,D_0\end{bmatrix}
+\end{aligned}
+$$
+}
+\end{column}
+\begin{column}{3.5cm}
+\only<4->{Step 2 -- Conquer!}
+\only<5->{
+$$
+\begin{aligned}
+\dot A &=H_{AB} B + H_{AD} D\\
+\dot B &=H_{BA} A + H_{BC} C\\
+\dot C &=H_{CB} B\\
+\dot D &=H_{DA} A + H_{DB} B\\
+\dot{\vec{S}}&=\textbf{H}\cdot \vec{S}
+\end{aligned}
+$$
+}
+\end{column}
+\begin{column}{3cm}
+\only<6->{Step 3 -- Win!}
+
+\only<7->{$$\vec{S}(t) = \int_0^t \dot{\vec{S}}\,dt + \vec{S}_0$$}
+\end{column}
+\end{columns} 
+
+
+\end{frame} 
+%@-node:gcross.20090227161347.9:Classic Systems
+%@+node:gcross.20090227161347.8:Quantum Systems
+\subsection{Quantum Divide and Conquer}
+
+\begin{frame}{A Quantum System}
+\begin{center}
+\includegraphics<1>[height=7cm]{quantumdiagram-1.pdf}
+\includegraphics<2>[height=7cm]{quantumdiagram-2.pdf}
+\includegraphics<3>[height=7cm]{quantumdiagram-3.pdf}
+\includegraphics<4>[height=7cm]{quantumdiagram-4.pdf}
+\includegraphics<5>[height=7cm]{quantumdiagram-5.pdf}
+\includegraphics<6>[height=7cm]{quantumdiagram-6.pdf}
+\includegraphics<7>[height=7cm]{quantumdiagram-7.pdf}
+\includegraphics<8>[height=7cm]{quantumdiagram-8.pdf}
+\includegraphics<9>[height=7cm]{quantumdiagram-8-5.pdf}
+\includegraphics<10>[height=7cm]{quantumdiagram-9.pdf}
+\includegraphics<11>[height=7cm]{quantumdiagram-10.pdf}
+\includegraphics<12>[height=7cm]{quantumdiagram-11.pdf}
+\includegraphics<13>[height=7cm]{quantumdiagram-12.pdf}
+\includegraphics<14>[height=7cm]{quantumdiagram-13.pdf}
+\includegraphics<15>[height=7cm]{quantumdiagram-14.pdf}
+\includegraphics<16>[height=7cm]{quantumdiagram-15.pdf}
+\includegraphics<17>[height=7cm]{quantumdiagram-16.pdf}
+\includegraphics<18>[height=7cm]{quantumdiagram-17.pdf}
+\includegraphics<19>[height=7cm]{quantumdiagram-18.pdf}
+\includegraphics<20>[height=7cm]{quantumdiagram-19.pdf}
+\includegraphics<21>[height=7cm]{quantumdiagram-20.pdf}
+\includegraphics<22>[height=7cm]{quantumdiagram-21.pdf}
+\includegraphics<23>[height=7cm]{quantumdiagram-22.pdf}
+\includegraphics<24>[height=7cm]{quantumdiagram-23.pdf}
+\includegraphics<25>[height=7cm]{quantumdiagram-24.pdf}
+\includegraphics<26>[height=7cm]{quantumdiagram-25.pdf}
+\includegraphics<27>[height=7cm]{quantumdiagram-26.pdf}
+\includegraphics<28>[height=7cm]{quantumdiagram-27.pdf}
+\includegraphics<29>[height=7cm]{quantumdiagram-25.pdf}
+\includegraphics<30>[height=7cm]{quantumdiagram-28.pdf}
+\includegraphics<31>[height=7cm]{quantumdiagram-29.pdf}
+\includegraphics<32>[height=7cm]{quantumdiagram-28.pdf}
+\includegraphics<33>[height=7cm]{quantumdiagram-30.pdf}
+\includegraphics<34>[height=7cm]{quantumdiagram-31.pdf}
+\includegraphics<35>[height=7cm]{quantumdiagram-32.pdf}
+\includegraphics<36>[height=7cm]{quantumdiagram-33.pdf}
+\includegraphics<37>[height=7cm]{quantumdiagram-34.pdf}
+\includegraphics<38>[height=7cm]{quantumdiagram-35.pdf}
+\includegraphics<39>[height=7cm]{quantumdiagram-36.pdf}
+\includegraphics<40>[height=7cm]{quantumdiagram-37.pdf}
+\includegraphics<41>[height=7cm]{quantumdiagram-38.pdf}
+\end{center}
+\end{frame} 
+%@-node:gcross.20090227161347.8:Quantum Systems
+%@-node:gcross.20090227161347.5:Motivation
+%@+node:gcross.20090227161347.6:Application
+\section{Application}
+
+%@+node:gcross.20090227161347.10:Statics
+\subsection{Statics}
+%@+node:gcross.20090301204519.2:Crash Course in Quantum Mechanics
+\begin{frame}{Crash Course in Quantum Mechanics}
+
+\begin{enumerate}
+\pause
+\item The state of a quantum system is represented by a vector.
+$$S^{\overbrace{\alpha\beta\gamma\delta\epsilon}^{X}}\equiv S^X \equiv \vec{S}$$
+\pause
+\item Time evolution of a quantum system is given by multiplication by a linear unitary operator.
+$$\vec{S}(t) = \textbf{U}(t)\cdot \vec{S}(0).$$
+\pause
+\item This unitary can be expressed as the exponentiation of a Hermiation operator called the Hamiltonian.
+$$\textbf{U}(t) = e^{i\textbf{H}t}$$
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}{Crash Course in Quantum Mechanics}
+
+\begin{enumerate}
+\item This unitary can be expressed as the exponentiation of a Hermiation operator called the Hamiltonian.
+$$\textbf{U}(t) = e^{i\textbf{H}t}$$
+\pause
+\item Eigenstates of $\textbf{H}$ correspond to state vectors which are stationary over time except for an evolving overall phase.
+$$\textbf{H}\cdot \vec{S} = \omega \vec{S} \Rightarrow \textbf{U}(t)\vec{S} = e^{i\textbf{H}t}\vec{S} = e^{i\omega t}\vec{S}$$
+\pause
+\item Goal of Quantum Mechanics:  Find the eigenstates of $\textbf{H}$.
+\pause
+\item Starting Point:  Find the eigenstate with the lowest eigenvalue--i.e., the ``ground state''.
+\end{enumerate}
+
+\end{frame}
+%@-node:gcross.20090301204519.2:Crash Course in Quantum Mechanics
+%@+node:gcross.20090301204519.3:Variational Approach
+\begin{frame}{Variational Approach}
+
+\begin{enumerate}
+\pause
+\item Objective:  Find the lowest value of $\omega$ such that $\textbf{H}\cdot \vec{S} = \omega \vec{S}.$
+\pause
+\item Equivalent to finding the state vector $\vec{S}$ to minimize the Rayleigh quotient $R(\vec{S}):=\frac{\vec{S}^*\cdot \textbf{H} \cdot \vec{S}}{\vec{S}^*\cdot \vec{S}}.$
+\pause
+\item Since we don't know $\vec{S}$ \emph{a priori}, make a guess with tunable parameters (an ``ansatz'') and vary these parameters to minimize $R(\vec{S}).$
+\pause
+\item The ``divide and conquer'' approach gives us an excellent ansatz for this purpose.
+\pause
+\begin{enumerate}
+\item $R(\vec{S})$ can be evaluated efficiently.
+\pause
+\item Parameters can be optimized efficiently.
+\pause
+\item It does a good job of approximating the true ground state.
+\end{enumerate}
+\end{enumerate}
+
+\end{frame}
+%@-node:gcross.20090301204519.3:Variational Approach
+%@+node:gcross.20090301204519.6:Efficiently computing R(\vec{S}), Part 1
+\begin{frame}{Efficiently computing $\vec{S}^*\cdot\vec{S}$}
+\begin{center}
+\includegraphics<1>[height=7cm]{sasvector-1.pdf}
+\includegraphics<2>[height=7cm]{sasvector-2.pdf}
+\includegraphics<3>[height=7cm]{sasvector-3.pdf}
+\includegraphics<4>[height=7cm]{sasvector-4.pdf}
+\includegraphics<5>[height=7cm]{sasvector-3.pdf}
+\includegraphics<6>[height=7cm]{sconjdots-1.pdf}
+\includegraphics<7>[height=7cm]{sconjdots-2.pdf}
+\includegraphics<8>[height=7cm]{sconjdots-3.pdf}
+\includegraphics<9>[height=7cm]{sconjdots-4.pdf}
+\end{center}
+\end{frame}
+
+%@-node:gcross.20090301204519.6:Efficiently computing R(\vec{S}), Part 1
+%@+node:gcross.20090301204519.8:Efficiently computing R(\vec{S}), Part 2
+\begin{frame}{Efficiently computing $\vec{S}^*\cdot\textbf{H}\cdot\vec{S}$}
+\begin{center}
+\includegraphics<1>[height=7cm]{expH-1.pdf}
+\includegraphics<2>[height=7cm]{expH-2.pdf}
+\includegraphics<3>[height=7cm]{expH-3.pdf}
+\includegraphics<4>[height=7cm]{expH-4.pdf}
+\includegraphics<5>[height=7cm]{expH-5.pdf}
+\includegraphics<6>[height=7cm]{expH-6.pdf}
+\includegraphics<7>[height=7cm]{expH-7.pdf}
+\end{center}
+\end{frame}
+
+%@-node:gcross.20090301204519.8:Efficiently computing R(\vec{S}), Part 2
+%@+node:gcross.20090301204519.7:Efficiently varying a site
+\begin{frame}{Efficiently varying a site}
+\begin{center}
+\includegraphics<1>[height=7cm]{vary-1.pdf}
+\includegraphics<2>[height=7cm]{vary-2.pdf}
+\includegraphics<3>[height=7cm]{vary-3.pdf}
+\includegraphics<4>[height=7cm]{vary-4.pdf}
+\includegraphics<5>[height=7cm]{vary-5.pdf}
+\includegraphics<6>[height=7cm]{vary-6.pdf}
+\includegraphics<7>[height=7cm]{vary-7.pdf}
+\end{center}
+\end{frame}
+
+%@-node:gcross.20090301204519.7:Efficiently varying a site
+%@+node:gcross.20090301204519.9:The Battle of Haldane-Shastry
+\begin{frame}{The Battle of Haldane-Shastry}
+\includegraphics<1>[height=7cm]{proofitworks-1.pdf}
+\includegraphics<2>[height=7cm]{proofitworks-2.pdf}
+\includegraphics<3>[height=7cm]{proofitworks-3.pdf}
+\includegraphics<4>[height=7cm]{proofitworks-4.pdf}
+\includegraphics<5>[height=7cm]{proofitworks-5.pdf}
+\includegraphics<6>[height=7cm]{proofitworks-6.pdf}
+\includegraphics<7>[height=7cm]{proofitworks-7.pdf}
+\end{frame}
+%@-node:gcross.20090301204519.9:The Battle of Haldane-Shastry
+%@-node:gcross.20090227161347.10:Statics
+%@+node:gcross.20090301204519.5:Dynamics
+\subsection{Dynamics}
+
+%@+node:gcross.20090318211957.2:Time evolution
+\begin{frame}{Time evolution: $T=\only<1>{0}\only<2-3>{\Delta t}\only<4-8>{2\Delta t}\only<9->{4\Delta t}$}
+\begin{center}
+\includegraphics<1>[height=7cm]{timevolve-0.pdf}
+\includegraphics<2>[height=7cm]{timevolve-1.pdf}
+\includegraphics<3>[height=7cm]{timevolve-2.pdf}
+\includegraphics<4>[height=7cm]{timevolve-3.pdf}
+\includegraphics<5>[height=7cm]{timevolve-4.pdf}
+\includegraphics<6>[height=7cm]{timevolve-5.pdf}
+\includegraphics<7>[height=7cm]{timevolve-6.pdf}
+\includegraphics<8>[height=7cm]{timevolve-7.pdf}
+\includegraphics<9>[height=7cm]{timevolve-8.pdf}
+\includegraphics<10>[height=7cm]{timevolve-9.pdf}
+\end{center}
+\end{frame}
+%@-node:gcross.20090318211957.2:Time evolution
+%@+node:gcross.20090318211957.3:SVD
+\begin{frame}{Singular Value Decomposition}
+\begin{center}
+\includegraphics<1>[height=7cm]{SVD-1.pdf}
+\includegraphics<2>[height=7cm]{SVD-2.pdf}
+\includegraphics<3>[height=7cm]{SVD-3.pdf}
+\includegraphics<4>[height=7cm]{SVD-4.pdf}
+\includegraphics<5>[height=7cm]{SVD-5.pdf}
+\includegraphics<6>[height=7cm]{SVD-5-1.pdf}
+\includegraphics<7>[height=7cm]{SVD-6.pdf}
+\includegraphics<8>[height=7cm]{SVD-7.pdf}
+\includegraphics<9>[height=7cm]{SVD-8.pdf}
+\includegraphics<10>[height=7cm]{SVD-9.pdf}
+\includegraphics<11>[height=7cm]{SVD-10.pdf}
+\end{center}
+\end{frame}
+%@-node:gcross.20090318211957.3:SVD
+%@-node:gcross.20090301204519.5:Dynamics
+%@-node:gcross.20090227161347.6:Application
+%@+node:gcross.20090227161347.7:Summary
+\begin{frame}{Summary}
+    \begin{itemize}
+        \item Divide and Conquer is a general strategy vital to understanding complex systems.
+        \item For systems with intrinsic nondeterminism, one must have a more nuanced sense of how to ``divide'' the system, but it still can be made to work.
+    \end{itemize}
+
+    References:  Search for "Crosswhite" on arxiv.org;  arXiv:cond-mat/0403313
+\end{frame}
+%@-node:gcross.20090227161347.7:Summary
+%@+node:gcross.20090301204519.12:Open Questions
+\begin{frame}{Open Questions}
+    \begin{itemize}
+        \item How well can these methods scale with inceased computing power?
+        \item How can these ideas be made to apply to systems with more than one dimension?
+    \end{itemize}
+\end{frame}
+%@-node:gcross.20090301204519.12:Open Questions
+%@-others
+
+\end{document}
+%@-node:gcross.20090227161347.2:@thin talk.tex
+%@-leo

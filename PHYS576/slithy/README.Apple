@@ -1,0 +1,104 @@
+LIMITATIONS
+---
+Interacting with objects and the pop-up bookmarks menu using
+the mouse is not supported.  Interacting with objects is
+probably a matter of some coding to deliver the mouse events.  
+The pop-up menu may be less straightforward.
+
+
+REQUIRED BITS
+---
+We need a tk that uses aqua directly so that we can get full
+screen and good performance.  (so we install tcl/tk.)  The
+default python doesn't have tkinter, but we can add it as a
+binary module.
+
+Open up a new Terminal.
+
+from:
+http://www.apple.com/downloads/macosx/unix_open_source/tcltk.html
+http://tcl.sourceforge.net/
+   TclTkAquaBI-8.4.4.0.dmg "Batteries Included" release.  
+   I don't think batteries (extra packages that use tcl) are 
+   required, but nice to have.
+
+http://www.visionegg.org/install-macosx-details.html 
+ usually has good instructions for installing enough python stuff 
+ to make opengl work.  To get tkinter and some other stuff, 
+
+ open http://ftp.cwi.nl/jack/python/mac/MacPython-Panther-2.3-2.dmg
+  # install it.
+ sudo chmod a+w /System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages
+ open /Applications/MacPython-2.3/PackageManager.app 
+  # install tkinter, PIL, and probably Numeric
+ sudo chmod o-w /System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages
+
+from:
+http://sourceforge.net/projects/pmw/
+   Pmw version 1.2 works fine.  
+     cd /System/Library/Frameworks/Python.framework/Versions/Current/lib/python2.3/site-packages && \
+     sudo tar xvf ~/download/Pmw.1.2.tar
+
+A useful freetype is now part of the default install.
+libjpeg was only needed for installing PIL, which is one
+of the packages installed above.
+
+
+BUILDING
+---
+cd slithy
+make MAC=1 PYTHON=/usr/bin/python
+
+an alternative...  
+--- 
+The changes that support the AGL-based build on mac do not
+prevent you from trying to build slithy as if it were unix
+using glX.  I understand some folks have made slithy work
+properly under fink with some video cards.  To build with
+fink (I don't recommend it at the moment) you'll want to use
+the LINK= line from the MAC section of the makefile.  It is
+possible that both fink libraries and AGL can be used with
+some mix.  Good luck.
+ 
+TESTING
+---
+setenv PYTHONPATH `pwd`
+cd techfest
+/usr/bin/pythonw ./techfest.py
+
+OTHER
+---
+
+Miscellaneous sources of information if you're interested in
+continuing the agl, os x port.
+
+python / tkinter:
+http://www.python.org/topics/tkinter/trouble.html#checking
+http://aspn.activestate.com/ASPN/Mail/Message/tcl-mac/1585898
+
+opengl, agl
+http://developer.apple.com/macosx/win32porting/3dgraphics.html
+http://developer.apple.com/documentation/GraphicsImaging/Reference/AGL_OpenGL/index.html
+
+quicktime movies in an opengl environment:
+http://developer.apple.com/samplecode/Sample_Code/Graphics_3D/OpenGL_Movie.htm 
+http://www.withay.com/macosx/opengl/gl_qt.html
+
+
+TROUBLESHOOTING
+--
+FT_New_Face damage -- you're using the wrong freetype library.
+
+KNOW THIS ONE TO AVOID EMBARRASSMENT:
+Blank screen except for mouse pointer after presentation --
+hit f7 (the screen thing) a few times to resync.  Hit it
+until you get a display back, then until you see mirrored
+displays.  
+
+I've hard-coded the refresh rate to 60Hz when running
+full-screen on the mac.  Without this change, it appears
+that some projectors will not support the faster(?) refresh
+rate.  With this change, well, all caveats about hard-coded
+parameters apply.  Send me mail if changing the variable
+refresh_rate in ob_slsoggy.c makes slithy work better
+somewhere.

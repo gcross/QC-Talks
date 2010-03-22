@@ -1,0 +1,43 @@
+This is Neil's abstract data type library.  As a repository
+of commonly useful tools, it's grabbed a little more than
+data types.  If it's not documented in this file, please
+ignore it.
+
+check_* - test infrastructure using libcheck (check.sourceforge.net). 
+  I don't recommend future use of libcheck, as it seems under-supported.
+
+distribution.* - basic statistics over distributions of
+  floating point numbers.  Over time, it should add functions
+  for generating basic graphs.
+
+hashtable.* - basic hashtable using void * to point to key/value pairs.
+hashes.* - hash and isequal functions for various simple data types 
+typed_hashtable.h - front-end macro for creating hashtables that
+  verify argument types and permit callback functions to use the 
+  specific type (instead of void *) in arguments.  It's like templates.
+
+progress.* - a simple progress bar implementation, with estimated time
+ to completion, etc.
+
+red_transititve.* - an array matrix specifically for alias resolution.
+ red edges (aliases) are transitive.  greed edges (not-aliases) are not.
+ ask me to explain, if you care.
+
+queue.* - mostly a possibly-sorted list, supporting queue operations 
+ and list operations. yes, it's a sad software engineering practice 
+ to have such functionality with the queue name.
+
+sorted_{int,string}list.* - insert and remove ints and strings from
+ a sorted list.  mostly a front end to queue.h before I developed the 
+ typed_ interface.
+
+string_bindings.* - maintain a table of string -> integer mappings.  this
+ is for compressing strings from pointers to shorts, and for recognizing 
+ frequently occurring strings.  if you can't see why it would be useful
+ for you, maybe it isn't.
+
+STAY AWAY FROM
+hprop*
+table*
+sprinter*
+as I no longer use them; they're eric hoffman's.

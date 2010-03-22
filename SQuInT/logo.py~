@@ -1,0 +1,19 @@
+def zero(width=(SCALAR,0,0.5)):
+    set_camera(0,0,1,1)
+    path = Path().moveto(0.5,1).curveto(0.5-width,1,0.5-width,0,0.5,0)
+
+
+def logo():
+    c = set_camera(0,0,1,2)
+
+    d = Drawable(c,zero,width=0.5)
+
+    start_animation(zero)
+
+    return end_animation()
+
+logo = logo()
+
+play(logo)
+
+run_presentation() 

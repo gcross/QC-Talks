@@ -1,0 +1,58 @@
+\beamer@endinputifotherversion {3.07pt}
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/4}{}{0}}
+\headcommand {\beamer@framepages {2}{4}}
+\headcommand {\slideentry {0}{0}{3}{5/13}{}{0}}
+\headcommand {\beamer@framepages {5}{13}}
+\headcommand {\slideentry {0}{0}{4}{14/14}{}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\sectionentry {1}{Motivation}{15}{Motivation}{0}}
+\headcommand {\beamer@sectionpages {1}{14}}
+\headcommand {\beamer@subsectionpages {1}{14}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{15}{Classic Divide and Conquer}}\headcommand {\beamer@subsectionpages {15}{14}}
+\headcommand {\slideentry {1}{1}{1}{15/15}{Classic Divide and Conquer}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\slideentry {1}{1}{2}{16/22}{Classic Divide and Conquer}{0}}
+\headcommand {\beamer@framepages {16}{22}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{23}{Quantum Divide and Conquer}}\headcommand {\beamer@subsectionpages {15}{22}}
+\headcommand {\slideentry {1}{2}{1}{23/23}{Quantum Divide and Conquer}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\slideentry {1}{2}{2}{24/64}{Quantum Divide and Conquer}{0}}
+\headcommand {\beamer@framepages {24}{64}}
+\headcommand {\sectionentry {2}{Application}{65}{Application}{0}}
+\headcommand {\beamer@sectionpages {15}{64}}
+\headcommand {\beamer@subsectionpages {23}{64}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{65}{Statics}}\headcommand {\beamer@subsectionpages {65}{64}}
+\headcommand {\slideentry {2}{1}{1}{65/65}{Statics}{0}}
+\headcommand {\beamer@framepages {65}{65}}
+\headcommand {\slideentry {2}{1}{2}{66/69}{Statics}{0}}
+\headcommand {\beamer@framepages {66}{69}}
+\headcommand {\slideentry {2}{1}{3}{70/73}{Statics}{0}}
+\headcommand {\beamer@framepages {70}{73}}
+\headcommand {\slideentry {2}{1}{4}{74/81}{Statics}{0}}
+\headcommand {\beamer@framepages {74}{81}}
+\headcommand {\slideentry {2}{1}{5}{82/90}{Statics}{0}}
+\headcommand {\beamer@framepages {82}{90}}
+\headcommand {\slideentry {2}{1}{6}{91/97}{Statics}{0}}
+\headcommand {\beamer@framepages {91}{97}}
+\headcommand {\slideentry {2}{1}{7}{98/104}{Statics}{0}}
+\headcommand {\beamer@framepages {98}{104}}
+\headcommand {\slideentry {2}{1}{8}{105/111}{Statics}{0}}
+\headcommand {\beamer@framepages {105}{111}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{112}{Dynamics}}\headcommand {\beamer@subsectionpages {65}{111}}
+\headcommand {\slideentry {2}{2}{1}{112/112}{Dynamics}{0}}
+\headcommand {\beamer@framepages {112}{112}}
+\headcommand {\slideentry {2}{2}{2}{113/122}{Dynamics}{0}}
+\headcommand {\beamer@framepages {113}{122}}
+\headcommand {\slideentry {2}{2}{3}{123/133}{Dynamics}{0}}
+\headcommand {\beamer@framepages {123}{133}}
+\headcommand {\slideentry {2}{2}{4}{134/134}{Dynamics}{0}}
+\headcommand {\beamer@framepages {134}{134}}
+\headcommand {\slideentry {2}{2}{5}{135/135}{Dynamics}{0}}
+\headcommand {\beamer@framepages {135}{135}}
+\headcommand {\beamer@partpages {1}{135}}
+\headcommand {\beamer@subsectionpages {112}{135}}
+\headcommand {\beamer@sectionpages {65}{135}}
+\headcommand {\beamer@documentpages {135}}
+\headcommand {\def \inserttotalframenumber {21}}

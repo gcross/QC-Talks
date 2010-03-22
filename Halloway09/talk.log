@@ -1,0 +1,1567 @@
+This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2008.10.26)  19 MAR 2009 07:56
+entering extended mode
+ %&-line parsing enabled.
+**talk
+(./talk.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, german-x-2008-06-18, ngerman-x-2008-06-18, ancientgreek, ibycus, ar
+abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
+h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
+greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, la
+tin, mongolian, mongolian2a, bokmal, nynorsk, polish, portuguese, romanian, rus
+sian, sanskrit, serbian, slovak, slovenian, spanish, swedish, turkish, ukenglis
+h, ukrainian, uppersorbian, welsh, loaded.
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamer.cls
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasercs.sty
+Package: beamerbasercs 2007/01/28 (rcs-revision 1.4)
+)
+Document Class: beamer 2007/03/11 cvs version 3.07 A class for typesetting pres
+entations (rcs-revision 1.70)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
+Package: beamerbasemodes 2007/01/28 (rcs-revision 1.22)
+\beamer@tempbox=\box26
+\beamer@tempcount=\count79
+\c@beamerpauses=\count80
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasedecode.sty
+Package: beamerbasedecode 2007/01/28 (rcs-revision 1.20)
+\beamer@slideinframe=\count81
+\beamer@minimum=\count82
+)
+\beamer@commentbox=\box27
+\beamer@modecount=\count83
+)
+\headheight=\dimen102
+\headdp=\dimen103
+\footheight=\dimen104
+\sidebarheight=\dimen105
+\beamer@tempdim=\dimen106
+\beamer@finalheight=\dimen107
+\beamer@animht=\dimen108
+\beamer@animdp=\dimen109
+\beamer@animwd=\dimen110
+\beamer@leftmargin=\dimen111
+\beamer@rightmargin=\dimen112
+\beamer@leftsidebar=\dimen113
+\beamer@rightsidebar=\dimen114
+\beamer@boxsize=\dimen115
+\beamer@vboxoffset=\dimen116
+\beamer@descdefault=\dimen117
+\beamer@descriptionwidth=\dimen118
+\beamer@lastskip=\skip41
+\beamer@areabox=\box28
+\beamer@animcurrent=\box29
+\beamer@animshowbox=\box30
+\beamer@sectionbox=\box31
+\beamer@logobox=\box32
+\beamer@linebox=\box33
+\beamer@sectioncount=\count84
+\beamer@subsubsectionmax=\count85
+\beamer@subsectionmax=\count86
+\beamer@sectionmax=\count87
+\beamer@totalheads=\count88
+\beamer@headcounter=\count89
+\beamer@partstartpage=\count90
+\beamer@sectionstartpage=\count91
+\beamer@subsectionstartpage=\count92
+\beamer@animationtempa=\count93
+\beamer@animationtempb=\count94
+\beamer@xpos=\count95
+\beamer@ypos=\count96
+\beamer@showpartnumber=\count97
+\beamer@currentsubsection=\count98
+\beamer@coveringdepth=\count99
+\beamer@sectionadjust=\count100
+\beamer@tocsectionnumber=\count101
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty
+Package: beamerbaseoptions 2007/01/28 (rcs-revision 1.8)
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+))
+(/usr/local/texlive/2008/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2008/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2008/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 90.
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2008/07/16 v0.04k Graphics/color for pdfTeX
+\Gread@gobject=\count102
+))
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2008/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks15
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+) (/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2008/02/20 v2.00 (rcs-revision 1.21)
+))
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2008/02/07 v2.00 (rcs-revision 1.31)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks16
+\pgfkeys@temptoks=\toks17
+)
+\pgf@x=\dimen121
+\pgf@y=\dimen122
+\pgf@xa=\dimen123
+\pgf@ya=\dimen124
+\pgf@xb=\dimen125
+\pgf@yb=\dimen126
+\pgf@xc=\dimen127
+\pgf@yc=\dimen128
+\c@pgf@counta=\count103
+\c@pgf@countb=\count104
+\c@pgf@countc=\count105
+\c@pgf@countd=\count106
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/01/13  (rcs-revision 1.6)
+)
+Package pgfsys Info: Driver file for pgf: pgfsys-pdftex.def on input line 885.
+
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+File: pgfsys-pdftex.def 2007/12/20  (rcs-revision 1.20)
+
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def
+File: pgfsys-common-pdf.def 2007/12/17  (rcs-revision 1.8)
+)))
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex
+File: pgfsyssoftpath.code.tex 2008/01/23  (rcs-revision 1.6)
+\pgfsyssoftpath@smallbuffer@items=\count107
+\pgfsyssoftpath@bigbuffer@items=\count108
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) (/usr/local/texlive/2008/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2008/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2008/01/15 v2.00 (rcs-revision 1.6)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
+\pgfmath@box=\box34
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@stack=\toks18
+\c@pgfmath@parsecounta=\count109
+\c@pgfmath@parsecountb=\count110
+\c@pgfmath@parsecountc=\count111
+\pgfmath@parsex=\dimen129
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/math/pgfmathoperations.code
+.tex
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/math/pgfmathtrig.code.tex)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/math/pgfmathrnd.code.tex))
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/math/pgfmathbase.code.tex))
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex
+File: pgfcorepoints.code.tex 2008/02/03  (rcs-revision 1.13)
+\pgf@picminx=\dimen130
+\pgf@picmaxx=\dimen131
+\pgf@picminy=\dimen132
+\pgf@picmaxy=\dimen133
+\pgf@pathminx=\dimen134
+\pgf@pathmaxx=\dimen135
+\pgf@pathminy=\dimen136
+\pgf@pathmaxy=\dimen137
+\pgf@xx=\dimen138
+\pgf@xy=\dimen139
+\pgf@yx=\dimen140
+\pgf@yy=\dimen141
+\pgf@zx=\dimen142
+\pgf@zy=\dimen143
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex
+File: pgfcorepathconstruct.code.tex 2008/02/13  (rcs-revision 1.14)
+\pgf@path@lastx=\dimen144
+\pgf@path@lasty=\dimen145
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex
+File: pgfcorepathusage.code.tex 2008/01/23  (rcs-revision 1.11)
+\pgf@shorten@end@additional=\dimen146
+\pgf@shorten@start@additional=\dimen147
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex
+File: pgfcorescopes.code.tex 2008/01/15  (rcs-revision 1.26)
+\pgfpic=\box35
+\pgf@hbox=\box36
+\pgf@layerbox@main=\box37
+\pgf@picture@serial@count=\count112
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex
+File: pgfcoregraphicstate.code.tex 2007/12/12  (rcs-revision 1.8)
+\pgflinewidth=\dimen148
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex
+File: pgfcoretransformations.code.tex 2008/02/04  (rcs-revision 1.10)
+\pgf@pt@x=\dimen149
+\pgf@pt@y=\dimen150
+\pgf@pt@temp=\dimen151
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex
+File: pgfcorequick.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex
+File: pgfcorepathprocessing.code.tex 2008/01/23  (rcs-revision 1.7)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex
+File: pgfcorearrows.code.tex 2007/06/07  (rcs-revision 1.8)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex
+File: pgfcoreshade.code.tex 2007/12/10  (rcs-revision 1.9)
+\pgf@max=\dimen152
+\pgf@sys@shading@range@num=\count113
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex
+File: pgfcoreimage.code.tex 2008/01/15  (rcs-revision 1.1)
+\pgfexternal@startupbox=\box38
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex
+File: pgfcorelayers.code.tex 2008/01/15  (rcs-revision 1.1)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex
+File: pgfcoretransparency.code.tex 2008/01/17  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex
+File: pgfcorepatterns.code.tex 2008/01/15  (rcs-revision 1.1)
+)))
+(/usr/local/texlive/2008/texmf-dist/tex/latex/pgf/basiclayer/pgfbaseimage.sty
+
+Package pgf Warning: This package is obsolete and no longer needed on input lin
+e 13.
+
+) (/usr/local/texlive/2008/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty
+Package: xxcolor 2003/10/24 ver 0.1
+\XC@nummixins=\count114
+\XC@countmixins=\count115
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\@emptytoks=\toks19
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+))
+(/usr/local/texlive/2008/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2002/07/08 v3.2 Page Geometry
+\Gm@cnth=\count116
+\Gm@cntv=\count117
+\c@Gm@tempcnt=\count118
+\Gm@bindingoffset=\dimen153
+\Gm@wd@mp=\dimen154
+\Gm@odd@mp=\dimen155
+\Gm@even@mp=\dimen156
+\Gm@dimlist=\toks20
+
+(/usr/local/texlive/2008/texmf-dist/tex/xelatex/xetexconfig/geometry.cfg))
+(/usr/local/texlive/2008/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2008/08/14 v6.78f Hypertext links for LaTeX
+
+(/usr/local/texlive/2008/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2007/12/12 v1.6 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected.
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2007/09/09 v1.3 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2006/08/21 v0.3 Provides ifxetex conditional
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/oberdiek/hycolor.sty
+Package: hycolor 2008/08/01 v1.3 Code for color options of hyperref/bookmark (H
+O)
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/oberdiek/xcolor-patch.sty
+Package: xcolor-patch 2008/08/01 xcolor patch
+))
+\@linkdim=\dimen157
+\Hy@linkcounter=\count119
+\Hy@pagecounter=\count120
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2008/08/14 v6.78f Hyperref: PDFDocEncoding definition (HO)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
+
+(/usr/local/texlive/2008/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2007/09/09 v1.2 Providing info/warning/message (HO)
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)
+(/usr/local/texlive/2008/texmf/tex/latex/config/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2007/10/18 v3.0 Keyval support for LaTeX options (HO)
+)
+Package hyperref Info: Option `bookmarks' set `true' on input line 2765.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 2765.
+Package hyperref Info: Option `implicit' set `false' on input line 2765.
+Package hyperref Info: Hyper figures OFF on input line 2876.
+Package hyperref Info: Link nesting OFF on input line 2881.
+Package hyperref Info: Hyper index ON on input line 2884.
+Package hyperref Info: Plain pages OFF on input line 2891.
+Package hyperref Info: Backreferencing OFF on input line 2896.
+
+Implicit mode OFF; no redefinition of LaTeX internals
+Package hyperref Info: Bookmarks ON on input line 3086.
+(/Users/gcross/Library/texmf/tex/latex/html/url.sty
+Package: url 1999/03/02  ver 1.4  Verb mode for urls, email addresses, and file
+ names
+)
+LaTeX Info: Redefining \url on input line 3272.
+
+(/usr/local/texlive/2008/texmf-dist/tex/generic/oberdiek/bitset.sty
+Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
+
+(/usr/local/texlive/2008/texmf-dist/tex/generic/oberdiek/intcalc.sty
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/generic/oberdiek/bigintcalc.sty
+Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
+
+(/usr/local/texlive/2008/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2007/12/12 v0.3 LuaTeX support for pdfTeX utility functions
+ (HO)
+Package pdftexcmds Info: LuaTeX not detected on input line 139.
+)))
+(/usr/local/texlive/2008/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2007/09/29 v1.3 Key value parser with default handler suppor
+t (HO)
+)
+\Fld@menulength=\count121
+\Field@Width=\dimen158
+\Fld@charsize=\dimen159
+\Field@toks=\toks21
+Package hyperref Info: Hyper figures OFF on input line 4189.
+Package hyperref Info: Link nesting OFF on input line 4194.
+Package hyperref Info: Hyper index ON on input line 4197.
+Package hyperref Info: backreferencing OFF on input line 4204.
+Package hyperref Info: Link coloring OFF on input line 4209.
+Package hyperref Info: Link coloring with OCG OFF on input line 4214.
+Package hyperref Info: PDF/A mode OFF on input line 4219.
+
+(/usr/local/texlive/2008/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
+)
+
+Package hyperref Warning: Option `pdfpagelabels' is turned off
+(hyperref)                because \thepage is undefined.
+
+Hyperref stopped early
+)
+*hyperref using default driver hpdftex*
+(/usr/local/texlive/2008/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2008/08/14 v6.78f Hyperref driver for pdfTeX
+\Fld@listcount=\count122
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasecompatibility.st
+y
+Package: beamerbasecompatibility 2007/01/28  (rcs-revision 1.63)
+) (/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasefont.sty
+Package: beamerbasefont 2007/01/28  (rcs-revision 1.16)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasemisc.sty
+Package: beamerbasemisc 2007/01/28  (rcs-revision 1.24)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty
+Package: beamerbasetwoscreens 2007/01/28  (rcs-revision 1.7)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
+Package: beamerbaseoverlay 2007/01/28  (rcs-revision 1.50)
+\beamer@argscount=\count123
+\beamer@lastskipcover=\skip42
+\beamer@trivlistdepth=\count124
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasetitle.sty
+Package: beamerbasetitle 2007/01/28  (rcs-revision 1.25)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasesection.sty
+Package: beamerbasesection 2007/01/28  (rcs-revision 1.21)
+\c@lecture=\count125
+\c@part=\count126
+\c@section=\count127
+\c@subsection=\count128
+\c@subsubsection=\count129
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbaseframe.sty
+Package: beamerbaseframe 2007/01/28  (rcs-revision 1.60)
+\beamer@framebox=\box39
+\beamer@frametitlebox=\box40
+\beamer@zoombox=\box41
+\beamer@zoomcount=\count130
+\beamer@zoomframecount=\count131
+\beamer@frametextheight=\dimen160
+\c@subsectionslide=\count132
+\beamer@frametopskip=\skip43
+\beamer@framebottomskip=\skip44
+\beamer@frametopskipautobreak=\skip45
+\beamer@framebottomskipautobreak=\skip46
+\beamer@envbody=\toks22
+\c@framenumber=\count133
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty
+Package: beamerbaseverbatim 2007/01/28  (rcs-revision 1.8)
+\beamer@verbatimfileout=\write3
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbaseframesize.sty
+Package: beamerbaseframesize 2007/01/28  (rcs-revision 1.18)
+\beamer@splitbox=\box42
+\beamer@autobreakcount=\count134
+\beamer@autobreaklastheight=\dimen161
+\beamer@frametitletoks=\toks23
+\beamer@framesubtitletoks=\toks24
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbaseframecomponents.
+sty
+Package: beamerbaseframecomponents 2007/01/28  (rcs-revision 1.41)
+\beamer@footins=\box43
+) (/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasecolor.sty
+Package: beamerbasecolor 2007/01/28  (rcs-revision 1.42)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasenotes.sty
+Package: beamerbasenotes 2007/01/28  (rcs-revision 1.23)
+\beamer@frameboxcopy=\box44
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasetoc.sty
+Package: beamerbasetoc 2007/01/28  (rcs-revision 1.21)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty
+Package: beamerbasetemplates 2007/01/28  (rcs-revision 1.51)
+\beamer@sbttoks=\toks25
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty
+Package: beamerbaseauxtemplates 2007/01/28  (rcs-revision 1.28)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
+Package: beamerbaseboxes 2007/03/11  (rcs-revision 1.32)
+\bmb@box=\box45
+\bmb@colorbox=\box46
+\bmb@boxshadow=\box47
+\bmb@boxshadowball=\box48
+\bmb@boxshadowballlarge=\box49
+\bmb@temp=\dimen162
+\bmb@dima=\dimen163
+\bmb@dimb=\dimen164
+\bmb@prevheight=\dimen165
+)
+\beamer@blockheadheight=\dimen166
+))
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.s
+ty
+Package: beamerbaselocalstructure 2007/01/28  (rcs-revision 1.53)
+ (/usr/local/texlive/2008/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks26
+)
+\c@figure=\count135
+\c@table=\count136
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty
+Package: beamerbasenavigation 2007/01/28  (rcs-revision 1.36)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty
+Package: beamerbasetheorems 2007/01/28  (rcs-revision 1.10)
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/translator/translator.sty
+Package: translator 2007/03/11 ver 1.00
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/translator/translator-language-ma
+ppings.tex)) (/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip49
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks27
+\ex@=\dimen167
+))
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen168
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count137
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count138
+\leftroot@=\count139
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count140
+\DOTSCASE@=\count141
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box50
+\strutbox@=\box51
+\big@size=\dimen169
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count142
+\c@MaxMatrixCols=\count143
+\dotsspace@=\muskip10
+\c@parentequation=\count144
+\dspbrk@lvl=\count145
+\tag@help=\toks28
+\row@=\count146
+\column@=\count147
+\maxfields@=\count148
+\andhelp@=\toks29
+\eqnshift@=\dimen170
+\alignsep@=\dimen171
+\tagshift@=\dimen172
+\tagwidth@=\dimen173
+\totwidth@=\dimen174
+\lineht@=\dimen175
+\@envbody=\toks30
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks31
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2004/08/06 v2.20
+\thm@style=\toks32
+\thm@bodyfont=\toks33
+\thm@headfont=\toks34
+\thm@notefont=\toks35
+\thm@headpunct=\toks36
+\thm@preskip=\skip52
+\thm@postskip=\skip53
+\thm@headsep=\skip54
+\dth@everypar=\toks37
+)
+\c@theorem=\count149
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/beamerbasethemes.sty
+Package: beamerbasethemes 2007/01/28  (rcs-revision 1.10)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/themes/theme/beamerthemede
+fault.sty
+Package: beamerthemedefault 2007/01/28  (rcs-revision 1.7)
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/themes/font/beamerfontthem
+edefault.sty
+Package: beamerfontthemedefault 2007/01/28  (rcs-revision 1.13)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/themes/color/beamercolorth
+emedefault.sty
+Package: beamercolorthemedefault 2007/01/28  (rcs-revision 1.28)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerth
+emedefault.sty
+Package: beamerinnerthemedefault 2007/01/28  (rcs-revision 1.20)
+\beamer@dima=\dimen176
+\beamer@dimb=\dimen177
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/themes/outer/beamerouterth
+emedefault.sty
+Package: beamerouterthemedefault 2007/01/28  (rcs-revision 1.14)
+)))
+(/usr/local/texlive/2008/texmf-dist/tex/latex/comment/comment.sty
+\CommentStream=\write4
+
+Excluding comment 'comment')
+(/usr/local/texlive/2008/texmf-dist/tex/latex/textpos/textpos.sty
+Package: textpos 2007/03/30 v1.7d
+
+Package: `textpos' 1.7d <2007 March 30>
+\TP@textbox=\box52
+\TPHorizModule=\dimen178
+\TPVertModule=\dimen179
+\TP@margin=\dimen180
+\TP@absmargin=\dimen181
+Grid set 16 x 16 = 22.7622pt x 17.07166pt
+\TPboxrulesize=\dimen182
+\TP@tbargs=\toks38
+\TP@prevdepth=\dimen183
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/themes/theme/beamerthemeWa
+rsaw.sty
+Package: beamerthemeWarsaw 2007/01/28  (rcs-revision 1.9)
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerth
+emerounded.sty
+Package: beamerinnerthemerounded 2007/01/28  (rcs-revision 1.5)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/themes/outer/beamerouterth
+emeshadow.sty
+Package: beamerouterthemeshadow 2007/01/28  (rcs-revision 1.9)
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/themes/outer/beamerouterth
+emesplit.sty
+Package: beamerouterthemesplit 2007/01/28  (rcs-revision 1.5)
+))
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/themes/color/beamercolorth
+emeorchid.sty
+Package: beamercolorthemeorchid 2007/01/28  (rcs-revision 1.3)
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/beamer/themes/color/beamercolorth
+emewhale.sty
+Package: beamercolorthemewhale 2007/01/28  (rcs-revision 1.4)
+)) (/usr/local/texlive/2008/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2008/07/06 v3.8l The Babel package
+
+(/usr/local/texlive/2008/texmf-dist/tex/generic/babel/english.ldf
+Language: english 2005/03/30 v3.3o English support from the babel system
+
+(/usr/local/texlive/2008/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2008/07/06 v3.8l Babel common definitions
+LaTeX Info: Redefining \textlatin on input line 82.
+\babel@savecnt=\count150
+\U@D=\dimen184
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2006/05/05 v1.1b Input encoding file
+\inpenc@prehook=\toks39
+\inpenc@posthook=\toks40
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2006/05/05 v1.1b Input encoding file
+))
+(/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+)) (./talk.aux)
+\openout1 = `talk.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 56.
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+(/usr/local/texlive/2008/texmf-dist/tex/context/base/supp-pdf.tex
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count151
+\scratchdimen=\dimen185
+\scratchbox=\box53
+\nofMPsegments=\count152
+\nofMParguments=\count153
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count154
+\MPscratchDim=\dimen186
+\MPnumerator=\count155
+\everyMPtoPDFconversion=\toks42
+)
+-------------------- Geometry parameters
+paper: user defined
+landscape: --
+twocolumn: --
+twoside: --
+asymmetric: --
+h-parts: 28.45274pt, 307.28987pt, 28.45274pt
+v-parts: 0.0pt, 273.14662pt, 0.0pt
+hmarginratio: --
+vmarginratio: --
+lines: --
+heightrounded: --
+bindingoffset: 0.0pt
+truedimen: --
+includehead: true
+includefoot: true
+includemp: --
+driver: pdftex
+-------------------- Page layout dimensions and switches
+\paperwidth  364.19536pt
+\paperheight 273.14662pt
+\textwidth  307.28987pt
+\textheight 244.6939pt
+\oddsidemargin  -43.81725pt
+\evensidemargin -43.81725pt
+\topmargin  -72.26999pt
+\headheight 14.22636pt
+\headsep    0.0pt
+\footskip   14.22636pt
+\marginparwidth 4.0pt
+\marginparsep   10.0pt
+\columnsep  10.0pt
+\skip\footins  10.0pt plus 4.0pt minus 2.0pt
+\hoffset 0.0pt
+\voffset 0.0pt
+\mag 1000
+
+(1in=72.27pt, 1cm=28.45pt)
+-----------------------
+Package hyperref Info: Link coloring OFF on input line 56.
+ (/usr/local/texlive/2008/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/oberdiek/refcount.sty
+Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
+)
+\c@section@level=\count156
+)
+LaTeX Info: Redefining \ref on input line 56.
+LaTeX Info: Redefining \pageref on input line 56.
+
+(./talk.out) (./talk.out)
+\@outlinefile=\write5
+\openout5 = `talk.out'.
+
+\AtBeginShipoutBox=\box54
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 56.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 56.
+\symnumbers=\mathgroup6
+\sympureletters=\mathgroup7
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/cmss/m/n --> T1/ptm/m/n on input line 56.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> T1/phv/bx/n on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> T1/phv/bx/n on input line 56.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> T1/phv/m/n on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> T1/phv/m/n on input line 56.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> T1/phv/m/it on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> T1/phv/m/it on input line 56.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> T1/pcr/m/n on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> T1/pcr/m/n on input line 56.
+LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
+(Font)                  T1/phv/m/n --> T1/phv/bx/n on input line 56.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  T1/phv/m/it --> T1/phv/bx/it on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  OT1/cmss/bx/n --> T1/ptm/bx/n on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  T1/phv/bx/n --> T1/phv/bx/n on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  T1/phv/m/n --> T1/phv/bx/n on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  T1/phv/m/it --> T1/phv/bx/it on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  T1/pcr/m/n --> T1/pcr/bx/n on input line 56.
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/translator/translator-theorem-dic
+tionary-English.dict
+Dictionary: translator-theorem-dictionary, Language: English 
+) (./talk.nav) [1{/usr/local/texlive/2008/texmf-var/fonts/map/pdftex/updmap/pdf
+tex.map}
+
+] [2
+
+] [3
+
+] [4
+
+]
+<dinodiagram-1.pdf, id=174, 505.89pt x 361.35pt>
+File: dinodiagram-1.pdf Graphic file (type pdf)
+ <use dinodiagram-1.pdf>
+[5
+
+ <./dinodiagram-1.pdf>] <dinodiagram-2.pdf, id=208, 505.89pt x 361.35pt>
+File: dinodiagram-2.pdf Graphic file (type pdf)
+
+<use dinodiagram-2.pdf> [6
+
+ <./dinodiagram-2.pdf>]
+<dinodiagram-3.pdf, id=241, 505.89pt x 361.35pt>
+File: dinodiagram-3.pdf Graphic file (type pdf)
+ <use dinodiagram-3.pdf>
+[7
+
+ <./dinodiagram-3.pdf>] <dinodiagram-4.pdf, id=275, 505.89pt x 361.35pt>
+File: dinodiagram-4.pdf Graphic file (type pdf)
+
+<use dinodiagram-4.pdf> [8
+
+ <./dinodiagram-4.pdf>]
+<dinodiagram-5.pdf, id=308, 505.89pt x 361.35pt>
+File: dinodiagram-5.pdf Graphic file (type pdf)
+ <use dinodiagram-5.pdf>
+[9
+
+ <./dinodiagram-5.pdf>] <dinodiagram-6.pdf, id=341, 505.89pt x 361.35pt>
+File: dinodiagram-6.pdf Graphic file (type pdf)
+
+<use dinodiagram-6.pdf> [10
+
+ <./dinodiagram-6.pdf>]
+<dinodiagram-7.pdf, id=375, 505.89pt x 361.35pt>
+File: dinodiagram-7.pdf Graphic file (type pdf)
+ <use dinodiagram-7.pdf>
+[11
+
+ <./dinodiagram-7.pdf>] <dinodiagram-8.pdf, id=409, 505.89pt x 361.35pt>
+File: dinodiagram-8.pdf Graphic file (type pdf)
+
+<use dinodiagram-8.pdf> [12
+
+ <./dinodiagram-8.pdf>]
+<dinodiagram-9.pdf, id=442, 505.89pt x 361.35pt>
+File: dinodiagram-9.pdf Graphic file (type pdf)
+ <use dinodiagram-9.pdf>
+[13
+
+ <./dinodiagram-9.pdf>] (./talk.toc) [14
+
+] (./talk.toc) [15
+
+]
+<fluiddiagram-1.pdf, id=555, 505.89pt x 180.675pt>
+File: fluiddiagram-1.pdf Graphic file (type pdf)
+ <use fluiddiagram-1.pdf>
+[16
+
+ <./fluiddiagram-1.pdf>] <fluiddiagram-2.pdf, id=588, 505.89pt x 180.675pt>
+File: fluiddiagram-2.pdf Graphic file (type pdf)
+
+<use fluiddiagram-2.pdf> [17
+
+ <./fluiddiagram-2.pdf>]
+File: fluiddiagram-2.pdf Graphic file (type pdf)
+ <use fluiddiagram-2.pdf>
+LaTeX Font Info:    Try loading font information for U+msa on input line 144.
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 144.
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 144.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 144.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <6> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 144.
+
+Overfull \vbox (6.05112pt too high) detected at line 144
+ []
+
+[18
+
+]
+File: fluiddiagram-2.pdf Graphic file (type pdf)
+ <use fluiddiagram-2.pdf>
+Overfull \vbox (6.05112pt too high) detected at line 144
+ []
+
+[19
+
+]
+File: fluiddiagram-2.pdf Graphic file (type pdf)
+ <use fluiddiagram-2.pdf>
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 144.
+
+Overfull \vbox (15.29228pt too high) detected at line 144
+ []
+
+[20
+
+]
+File: fluiddiagram-2.pdf Graphic file (type pdf)
+ <use fluiddiagram-2.pdf>
+Overfull \vbox (15.29228pt too high) detected at line 144
+ []
+
+[21
+
+]
+File: fluiddiagram-2.pdf Graphic file (type pdf)
+ <use fluiddiagram-2.pdf>
+Overfull \hbox (6.34256pt too wide) detected at line 144
+[]\OT1/cmss/m/n/10.95 (\T1/phv/m/sl/10.95 t\OT1/cmss/m/n/10.95 ) = [][] []\T1/p
+hv/m/sl/10.95 S dt \OT1/cmss/m/n/10.95 + []
+ []
+
+
+Overfull \vbox (15.29228pt too high) detected at line 144
+ []
+
+[22
+
+] (./talk.toc) [23
+
+] <quantumdiagram-1.pdf, id=812, 505.89pt x 361.35pt>
+File: quantumdiagram-1.pdf Graphic file (type pdf)
+
+<use quantumdiagram-1.pdf> [24
+
+ <./quantumdiagram-1.pdf>]
+<quantumdiagram-2.pdf, id=845, 505.89pt x 361.35pt>
+File: quantumdiagram-2.pdf Graphic file (type pdf)
+ <use quantumdiagram-2.pdf>
+[25
+
+ <./quantumdiagram-2.pdf>]
+<quantumdiagram-3.pdf, id=879, 505.89pt x 361.35pt>
+File: quantumdiagram-3.pdf Graphic file (type pdf)
+ <use quantumdiagram-3.pdf>
+[26
+
+ <./quantumdiagram-3.pdf>]
+<quantumdiagram-4.pdf, id=912, 505.89pt x 361.35pt>
+File: quantumdiagram-4.pdf Graphic file (type pdf)
+ <use quantumdiagram-4.pdf>
+[27
+
+ <./quantumdiagram-4.pdf>]
+<quantumdiagram-5.pdf, id=945, 505.89pt x 361.35pt>
+File: quantumdiagram-5.pdf Graphic file (type pdf)
+ <use quantumdiagram-5.pdf>
+[28
+
+ <./quantumdiagram-5.pdf>]
+<quantumdiagram-6.pdf, id=978, 505.89pt x 361.35pt>
+File: quantumdiagram-6.pdf Graphic file (type pdf)
+ <use quantumdiagram-6.pdf>
+[29
+
+ <./quantumdiagram-6.pdf>]
+<quantumdiagram-7.pdf, id=1011, 505.89pt x 361.35pt>
+File: quantumdiagram-7.pdf Graphic file (type pdf)
+
+<use quantumdiagram-7.pdf> [30
+
+ <./quantumdiagram-7.pdf>]
+<quantumdiagram-8.pdf, id=1044, 505.89pt x 361.35pt>
+File: quantumdiagram-8.pdf Graphic file (type pdf)
+
+<use quantumdiagram-8.pdf> [31
+
+ <./quantumdiagram-8.pdf>]
+<quantumdiagram-8-5.pdf, id=1078, 505.89pt x 361.35pt>
+File: quantumdiagram-8-5.pdf Graphic file (type pdf)
+
+<use quantumdiagram-8-5.pdf> [32
+
+ <./quantumdiagram-8-5.pdf>]
+<quantumdiagram-9.pdf, id=1111, 505.89pt x 361.35pt>
+File: quantumdiagram-9.pdf Graphic file (type pdf)
+
+<use quantumdiagram-9.pdf> [33
+
+ <./quantumdiagram-9.pdf>]
+<quantumdiagram-10.pdf, id=1144, 505.89pt x 361.35pt>
+File: quantumdiagram-10.pdf Graphic file (type pdf)
+
+<use quantumdiagram-10.pdf> [34
+
+ <./quantumdiagram-10.pdf>]
+<quantumdiagram-11.pdf, id=1177, 505.89pt x 361.35pt>
+File: quantumdiagram-11.pdf Graphic file (type pdf)
+
+<use quantumdiagram-11.pdf> [35
+
+ <./quantumdiagram-11.pdf>]
+<quantumdiagram-12.pdf, id=1210, 505.89pt x 361.35pt>
+File: quantumdiagram-12.pdf Graphic file (type pdf)
+
+<use quantumdiagram-12.pdf> [36
+
+ <./quantumdiagram-12.pdf>]
+<quantumdiagram-13.pdf, id=1243, 505.89pt x 361.35pt>
+File: quantumdiagram-13.pdf Graphic file (type pdf)
+
+<use quantumdiagram-13.pdf> [37
+
+ <./quantumdiagram-13.pdf>]
+<quantumdiagram-14.pdf, id=1277, 505.89pt x 361.35pt>
+File: quantumdiagram-14.pdf Graphic file (type pdf)
+
+<use quantumdiagram-14.pdf> [38
+
+ <./quantumdiagram-14.pdf>]
+<quantumdiagram-15.pdf, id=1310, 505.89pt x 361.35pt>
+File: quantumdiagram-15.pdf Graphic file (type pdf)
+
+<use quantumdiagram-15.pdf> [39
+
+ <./quantumdiagram-15.pdf>]
+<quantumdiagram-16.pdf, id=1343, 505.89pt x 361.35pt>
+File: quantumdiagram-16.pdf Graphic file (type pdf)
+
+<use quantumdiagram-16.pdf> [40
+
+ <./quantumdiagram-16.pdf>]
+<quantumdiagram-17.pdf, id=1376, 505.89pt x 361.35pt>
+File: quantumdiagram-17.pdf Graphic file (type pdf)
+
+<use quantumdiagram-17.pdf> [41
+
+ <./quantumdiagram-17.pdf>]
+<quantumdiagram-18.pdf, id=1409, 505.89pt x 361.35pt>
+File: quantumdiagram-18.pdf Graphic file (type pdf)
+
+<use quantumdiagram-18.pdf> [42
+
+ <./quantumdiagram-18.pdf>]
+<quantumdiagram-19.pdf, id=1442, 505.89pt x 361.35pt>
+File: quantumdiagram-19.pdf Graphic file (type pdf)
+
+<use quantumdiagram-19.pdf> [43
+
+ <./quantumdiagram-19.pdf>]
+<quantumdiagram-20.pdf, id=1476, 505.89pt x 361.35pt>
+File: quantumdiagram-20.pdf Graphic file (type pdf)
+
+<use quantumdiagram-20.pdf> [44
+
+ <./quantumdiagram-20.pdf>]
+<quantumdiagram-21.pdf, id=1509, 505.89pt x 361.35pt>
+File: quantumdiagram-21.pdf Graphic file (type pdf)
+
+<use quantumdiagram-21.pdf> [45
+
+ <./quantumdiagram-21.pdf>]
+<quantumdiagram-22.pdf, id=1542, 505.89pt x 361.35pt>
+File: quantumdiagram-22.pdf Graphic file (type pdf)
+
+<use quantumdiagram-22.pdf> [46
+
+ <./quantumdiagram-22.pdf>]
+<quantumdiagram-23.pdf, id=1575, 505.89pt x 361.35pt>
+File: quantumdiagram-23.pdf Graphic file (type pdf)
+
+<use quantumdiagram-23.pdf> [47
+
+ <./quantumdiagram-23.pdf>]
+<quantumdiagram-24.pdf, id=1608, 505.89pt x 361.35pt>
+File: quantumdiagram-24.pdf Graphic file (type pdf)
+
+<use quantumdiagram-24.pdf> [48
+
+ <./quantumdiagram-24.pdf>]
+<quantumdiagram-25.pdf, id=1641, 505.89pt x 361.35pt>
+File: quantumdiagram-25.pdf Graphic file (type pdf)
+
+<use quantumdiagram-25.pdf> [49
+
+ <./quantumdiagram-25.pdf>]
+<quantumdiagram-26.pdf, id=1675, 505.89pt x 361.35pt>
+File: quantumdiagram-26.pdf Graphic file (type pdf)
+
+<use quantumdiagram-26.pdf> [50
+
+ <./quantumdiagram-26.pdf>]
+<quantumdiagram-27.pdf, id=1708, 505.89pt x 361.35pt>
+File: quantumdiagram-27.pdf Graphic file (type pdf)
+
+<use quantumdiagram-27.pdf> [51
+
+ <./quantumdiagram-27.pdf>]
+File: quantumdiagram-25.pdf Graphic file (type pdf)
+
+<use quantumdiagram-25.pdf> [52
+
+]
+<quantumdiagram-28.pdf, id=1771, 505.89pt x 361.35pt>
+File: quantumdiagram-28.pdf Graphic file (type pdf)
+
+<use quantumdiagram-28.pdf> [53
+
+ <./quantumdiagram-28.pdf>]
+<quantumdiagram-29.pdf, id=1804, 505.89pt x 361.35pt>
+File: quantumdiagram-29.pdf Graphic file (type pdf)
+
+<use quantumdiagram-29.pdf> [54
+
+ <./quantumdiagram-29.pdf>]
+File: quantumdiagram-28.pdf Graphic file (type pdf)
+
+<use quantumdiagram-28.pdf> [55
+
+]
+<quantumdiagram-30.pdf, id=1868, 505.89pt x 361.35pt>
+File: quantumdiagram-30.pdf Graphic file (type pdf)
+
+<use quantumdiagram-30.pdf> [56
+
+ <./quantumdiagram-30.pdf>]
+<quantumdiagram-31.pdf, id=1901, 505.89pt x 361.35pt>
+File: quantumdiagram-31.pdf Graphic file (type pdf)
+
+<use quantumdiagram-31.pdf> [57
+
+ <./quantumdiagram-31.pdf>]
+<quantumdiagram-32.pdf, id=1934, 505.89pt x 361.35pt>
+File: quantumdiagram-32.pdf Graphic file (type pdf)
+
+<use quantumdiagram-32.pdf> [58
+
+ <./quantumdiagram-32.pdf>]
+<quantumdiagram-33.pdf, id=1967, 505.89pt x 361.35pt>
+File: quantumdiagram-33.pdf Graphic file (type pdf)
+
+<use quantumdiagram-33.pdf> [59
+
+ <./quantumdiagram-33.pdf>]
+<quantumdiagram-34.pdf, id=2000, 505.89pt x 361.35pt>
+File: quantumdiagram-34.pdf Graphic file (type pdf)
+
+<use quantumdiagram-34.pdf> [60
+
+ <./quantumdiagram-34.pdf>]
+<quantumdiagram-35.pdf, id=2033, 505.89pt x 361.35pt>
+File: quantumdiagram-35.pdf Graphic file (type pdf)
+
+<use quantumdiagram-35.pdf> [61
+
+ <./quantumdiagram-35.pdf>]
+<quantumdiagram-36.pdf, id=2067, 505.89pt x 361.35pt>
+File: quantumdiagram-36.pdf Graphic file (type pdf)
+
+<use quantumdiagram-36.pdf> [62
+
+ <./quantumdiagram-36.pdf>]
+<quantumdiagram-37.pdf, id=2100, 505.89pt x 361.35pt>
+File: quantumdiagram-37.pdf Graphic file (type pdf)
+
+<use quantumdiagram-37.pdf> [63
+
+ <./quantumdiagram-37.pdf>]
+<quantumdiagram-38.pdf, id=2132, 505.89pt x 361.35pt>
+File: quantumdiagram-38.pdf Graphic file (type pdf)
+
+<use quantumdiagram-38.pdf> [64
+
+ <./quantumdiagram-38.pdf>] (./talk.toc)
+[65
+
+] [66
+
+] [67
+
+] [68
+
+] [69
+
+] [70
+
+] [71
+
+] [72
+
+] [73
+
+]
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 257.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 257.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 257.
+ [74
+
+] [75
+
+] [76
+
+] [77
+
+] [78
+
+] [79
+
+]
+[80
+
+] [81
+
+] <sasvector-1.pdf, id=2687, 505.89pt x 361.35pt>
+File: sasvector-1.pdf Graphic file (type pdf)
+
+<use sasvector-1.pdf>
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <14.4> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 272.
+ [82
+
+ <./sasvector-1.pdf>]
+<sasvector-2.pdf, id=2723, 505.89pt x 361.35pt>
+File: sasvector-2.pdf Graphic file (type pdf)
+ <use sasvector-2.pdf> [83
+
+ <./sasvector-2.pdf>] <sasvector-3.pdf, id=2756, 505.89pt x 361.35pt>
+File: sasvector-3.pdf Graphic file (type pdf)
+
+<use sasvector-3.pdf> [84
+
+ <./sasvector-3.pdf>]
+<sasvector-4.pdf, id=2789, 505.89pt x 361.35pt>
+File: sasvector-4.pdf Graphic file (type pdf)
+ <use sasvector-4.pdf> [85
+
+ <./sasvector-4.pdf>]
+File: sasvector-3.pdf Graphic file (type pdf)
+ <use sasvector-3.pdf> [86
+
+]
+<sconjdots-1.pdf, id=2853, 505.89pt x 361.35pt>
+File: sconjdots-1.pdf Graphic file (type pdf)
+ <use sconjdots-1.pdf> [87
+
+ <./sconjdots-1.pdf>] <sconjdots-2.pdf, id=2886, 505.89pt x 361.35pt>
+File: sconjdots-2.pdf Graphic file (type pdf)
+
+<use sconjdots-2.pdf> [88
+
+ <./sconjdots-2.pdf>]
+<sconjdots-3.pdf, id=2919, 505.89pt x 361.35pt>
+File: sconjdots-3.pdf Graphic file (type pdf)
+ <use sconjdots-3.pdf> [89
+
+ <./sconjdots-3.pdf>] <sconjdots-4.pdf, id=2951, 505.89pt x 361.35pt>
+File: sconjdots-4.pdf Graphic file (type pdf)
+
+<use sconjdots-4.pdf> [90
+
+ <./sconjdots-4.pdf>]
+<expH-1.pdf, id=2983, 505.89pt x 361.35pt>
+File: expH-1.pdf Graphic file (type pdf)
+ <use expH-1.pdf>
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 286.
+ [91
+
+ <./expH-1.pdf>] <expH-2.pdf, id=3019, 505.89pt x 361.35pt>
+File: expH-2.pdf Graphic file (type pdf)
+ <use expH-2.pdf> [92
+
+ <./expH-2.pdf>] <expH-3.pdf, id=3052, 505.89pt x 361.35pt>
+File: expH-3.pdf Graphic file (type pdf)
+ <use expH-3.pdf> [93
+
+ <./expH-3.pdf>] <expH-4.pdf, id=3085, 505.89pt x 361.35pt>
+File: expH-4.pdf Graphic file (type pdf)
+ <use expH-4.pdf> [94
+
+ <./expH-4.pdf>] <expH-5.pdf, id=3118, 505.89pt x 361.35pt>
+File: expH-5.pdf Graphic file (type pdf)
+ <use expH-5.pdf> [95
+
+ <./expH-5.pdf>] <expH-6.pdf, id=3151, 505.89pt x 361.35pt>
+File: expH-6.pdf Graphic file (type pdf)
+ <use expH-6.pdf> [96
+
+ <./expH-6.pdf>] <expH-7.pdf, id=3183, 505.89pt x 361.35pt>
+File: expH-7.pdf Graphic file (type pdf)
+ <use expH-7.pdf> [97
+
+ <./expH-7.pdf>] <vary-1.pdf, id=3216, 505.89pt x 361.35pt>
+File: vary-1.pdf Graphic file (type pdf)
+ <use vary-1.pdf> [98
+
+ <./vary-1.pdf>] <vary-2.pdf, id=3251, 505.89pt x 361.35pt>
+File: vary-2.pdf Graphic file (type pdf)
+ <use vary-2.pdf> [99
+
+ <./vary-2.pdf>] <vary-3.pdf, id=3284, 505.89pt x 361.35pt>
+File: vary-3.pdf Graphic file (type pdf)
+ <use vary-3.pdf> [100
+
+ <./vary-3.pdf>] <vary-4.pdf, id=3317, 505.89pt x 361.35pt>
+File: vary-4.pdf Graphic file (type pdf)
+ <use vary-4.pdf> [101
+
+ <./vary-4.pdf>] <vary-5.pdf, id=3350, 505.89pt x 361.35pt>
+File: vary-5.pdf Graphic file (type pdf)
+ <use vary-5.pdf>
+[102
+
+ <./vary-5.pdf>] <vary-6.pdf, id=3383, 505.89pt x 361.35pt>
+File: vary-6.pdf Graphic file (type pdf)
+
+<use vary-6.pdf> [103
+
+ <./vary-6.pdf>]
+<vary-7.pdf, id=3416, 505.89pt x 361.35pt>
+File: vary-7.pdf Graphic file (type pdf)
+ <use vary-7.pdf> [104
+
+ <./vary-7.pdf>] <proofitworks-1.pdf, id=3448, 505.89pt x 361.35pt>
+File: proofitworks-1.pdf Graphic file (type pdf)
+ <use proofitworks-1.pdf>
+[105
+
+ <./proofitworks-1.pdf>]
+<proofitworks-2.pdf, id=3481, 505.89pt x 361.35pt>
+File: proofitworks-2.pdf Graphic file (type pdf)
+ <use proofitworks-2.pdf>
+[106
+
+ <./proofitworks-2.pdf>]
+<proofitworks-3.pdf, id=3514, 505.89pt x 361.35pt>
+File: proofitworks-3.pdf Graphic file (type pdf)
+ <use proofitworks-3.pdf>
+[107
+
+ <./proofitworks-3.pdf>]
+<proofitworks-4.pdf, id=3547, 505.89pt x 361.35pt>
+File: proofitworks-4.pdf Graphic file (type pdf)
+ <use proofitworks-4.pdf>
+[108
+
+ <./proofitworks-4.pdf>]
+<proofitworks-5.pdf, id=3580, 505.89pt x 361.35pt>
+File: proofitworks-5.pdf Graphic file (type pdf)
+ <use proofitworks-5.pdf>
+[109
+
+ <./proofitworks-5.pdf>]
+<proofitworks-6.pdf, id=3614, 505.89pt x 361.35pt>
+File: proofitworks-6.pdf Graphic file (type pdf)
+ <use proofitworks-6.pdf>
+[110
+
+ <./proofitworks-6.pdf>]
+<proofitworks-7.pdf, id=3646, 505.89pt x 361.35pt>
+File: proofitworks-7.pdf Graphic file (type pdf)
+ <use proofitworks-7.pdf>
+[111
+
+ <./proofitworks-7.pdf>] (./talk.toc) [112
+
+]
+<timevolve-0.pdf, id=3714, 505.89pt x 361.35pt>
+File: timevolve-0.pdf Graphic file (type pdf)
+ <use timevolve-0.pdf> [113
+
+ <./timevolve-0.pdf>] <timevolve-1.pdf, id=3750, 505.89pt x 361.35pt>
+File: timevolve-1.pdf Graphic file (type pdf)
+
+<use timevolve-1.pdf> [114
+
+ <./timevolve-1.pdf>]
+<timevolve-2.pdf, id=3783, 505.89pt x 361.35pt>
+File: timevolve-2.pdf Graphic file (type pdf)
+ <use timevolve-2.pdf> [115
+
+ <./timevolve-2.pdf>] <timevolve-3.pdf, id=3817, 505.89pt x 361.35pt>
+File: timevolve-3.pdf Graphic file (type pdf)
+
+<use timevolve-3.pdf> [116
+
+ <./timevolve-3.pdf>]
+<timevolve-4.pdf, id=3850, 505.89pt x 361.35pt>
+File: timevolve-4.pdf Graphic file (type pdf)
+ <use timevolve-4.pdf> [117
+
+ <./timevolve-4.pdf>] <timevolve-5.pdf, id=3883, 505.89pt x 361.35pt>
+File: timevolve-5.pdf Graphic file (type pdf)
+
+<use timevolve-5.pdf> [118
+
+ <./timevolve-5.pdf>]
+<timevolve-6.pdf, id=3916, 505.89pt x 361.35pt>
+File: timevolve-6.pdf Graphic file (type pdf)
+ <use timevolve-6.pdf> [119
+
+ <./timevolve-6.pdf>] <timevolve-7.pdf, id=3949, 505.89pt x 361.35pt>
+File: timevolve-7.pdf Graphic file (type pdf)
+
+<use timevolve-7.pdf> [120
+
+ <./timevolve-7.pdf>]
+<timevolve-8.pdf, id=3982, 505.89pt x 361.35pt>
+File: timevolve-8.pdf Graphic file (type pdf)
+ <use timevolve-8.pdf> [121
+
+ <./timevolve-8.pdf>] <timevolve-9.pdf, id=4015, 505.89pt x 361.35pt>
+File: timevolve-9.pdf Graphic file (type pdf)
+
+<use timevolve-9.pdf> [122
+
+ <./timevolve-9.pdf>]
+<SVD-1.pdf, id=4047, 505.89pt x 361.35pt>
+File: SVD-1.pdf Graphic file (type pdf)
+ <use SVD-1.pdf> [123
+
+ <./SVD-1.pdf>]
+<SVD-2.pdf, id=4082, 505.89pt x 361.35pt>
+File: SVD-2.pdf Graphic file (type pdf)
+ <use SVD-2.pdf> [124
+
+ <./SVD-2.pdf>]
+<SVD-3.pdf, id=4115, 505.89pt x 361.35pt>
+File: SVD-3.pdf Graphic file (type pdf)
+ <use SVD-3.pdf> [125
+
+ <./SVD-3.pdf>]
+<SVD-4.pdf, id=4148, 505.89pt x 361.35pt>
+File: SVD-4.pdf Graphic file (type pdf)
+ <use SVD-4.pdf> [126
+
+ <./SVD-4.pdf>]
+<SVD-5.pdf, id=4181, 505.89pt x 361.35pt>
+File: SVD-5.pdf Graphic file (type pdf)
+ <use SVD-5.pdf> [127
+
+ <./SVD-5.pdf>]
+<SVD-5-1.pdf, id=4215, 505.89pt x 361.35pt>
+File: SVD-5-1.pdf Graphic file (type pdf)
+ <use SVD-5-1.pdf> [128
+
+ <./SVD-5-1.pdf>] <SVD-6.pdf, id=4248, 505.89pt x 361.35pt>
+File: SVD-6.pdf Graphic file (type pdf)
+ <use SVD-6.pdf> [129
+
+ <./SVD-6.pdf>] <SVD-7.pdf, id=4281, 505.89pt x 361.35pt>
+File: SVD-7.pdf Graphic file (type pdf)
+ <use SVD-7.pdf> [130
+
+ <./SVD-7.pdf>] <SVD-8.pdf, id=4314, 505.89pt x 361.35pt>
+File: SVD-8.pdf Graphic file (type pdf)
+ <use SVD-8.pdf> [131
+
+ <./SVD-8.pdf>] <SVD-9.pdf, id=4347, 505.89pt x 361.35pt>
+File: SVD-9.pdf Graphic file (type pdf)
+ <use SVD-9.pdf> [132
+
+ <./SVD-9.pdf>] <SVD-10.pdf, id=4379, 505.89pt x 361.35pt>
+File: SVD-10.pdf Graphic file (type pdf)
+ <use SVD-10.pdf> [133
+
+ <./SVD-10.pdf>] [134
+
+] [135
+
+]
+\tf@nav=\write6
+\openout6 = `talk.nav'.
+
+\tf@toc=\write7
+\openout7 = `talk.toc'.
+
+\tf@snm=\write8
+\openout8 = `talk.snm'.
+
+ (./talk.aux) ) 
+Here is how much of TeX's memory you used:
+ 14142 strings out of 493886
+ 252530 string characters out of 1151098
+ 322372 words of memory out of 3000000
+ 16638 multiletter control sequences out of 10000+50000
+ 64958 words of font info for 85 fonts, out of 3000000 for 5000
+ 714 hyphenation exceptions out of 8191
+ 43i,19n,65p,308b,747s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2008/texmf-dist/fonts/enc/dvips/base/8r.enc}
+</usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmex10.pfb></usr/loc
+al/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmmi10.pfb></usr/local/texliv
+e/2008/texmf-dist/fonts/type1/bluesky/cm/cmmi12.pfb></usr/local/texlive/2008/te
+xmf-dist/fonts/type1/bluesky/cm/cmmi8.pfb></usr/local/texlive/2008/texmf-dist/f
+onts/type1/bluesky/cm/cmss10.pfb></usr/local/texlive/2008/texmf-dist/fonts/type
+1/bluesky/cm/cmss12.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky
+/cm/cmsy10.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmsy6
+.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmsy8.pfb></usr
+/local/texlive/2008/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/
+texlive/2008/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive
+/2008/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on talk.pdf (135 pages, 6191661 bytes).
+PDF statistics:
+ 4573 PDF objects out of 5155 (max. 8388607)
+ 277 named destinations out of 1000 (max. 131072)
+ 657 words of extra memory for PDF output out of 10000 (max. 10000000)
+

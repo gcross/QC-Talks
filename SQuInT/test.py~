@@ -1,0 +1,6 @@
+def test_slide():
+    c = get_camera()
+
+play(phaser.dramatic_phase_slide)
+
+run_presentation() 

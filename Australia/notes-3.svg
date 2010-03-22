@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="450"
+   height="70"
+   id="svg5607"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   version="1.0"
+   sodipodi:docbase="/Users/cog/Projects/QC/Australia"
+   sodipodi:docname="notes-3.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs5609">
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Mend"
+       style="overflow:visible">
+      <path
+         id="path4271"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.97309,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(-0.6,-0.6)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.2001173"
+     inkscape:cx="254.6754"
+     inkscape:cy="45"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     width="450px"
+     height="70px"
+     inkscape:object-bbox="true"
+     inkscape:object-points="true"
+     inkscape:grid-points="true"
+     units="px"
+     inkscape:object-nodes="true"
+     inkscape:guide-points="true"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="697"
+     inkscape:window-height="581"
+     inkscape:window-x="38"
+     inkscape:window-y="41" />
+  <metadata
+     id="metadata5612">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2160"
+       width="20"
+       height="20"
+       x="29.999998"
+       y="20" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px"
+       x="32.147217"
+       y="37.30455"
+       id="text3152"><tspan
+         sodipodi:role="line"
+         id="tspan3154"
+         x="32.147217"
+         y="37.30455">S</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px"
+       x="42.621094"
+       y="28.5"
+       id="text3156"><tspan
+         sodipodi:role="line"
+         id="tspan3158"
+         x="42.621094"
+         y="28.5">1</tspan></text>
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1"
+       d="M 39.5,40.5 L 39.5,55.5"
+       id="path3270" />
+    <path
+       id="path5480"
+       d="M 30,29.9502 L 15,29.9502"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1" />
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1"
+       d="M 50,29.9502 L 65,29.9502"
+       id="path5482" />
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-family:Calisto MT"
+       x="42.176971"
+       y="46.794403"
+       id="text3201"><tspan
+         sodipodi:role="line"
+         id="tspan3203"
+         x="42.176971"
+         y="46.794403">s</tspan></text>
+    <text
+       id="text3227"
+       y="26.794403"
+       x="23.176971"
+       style="font-size:8px;font-family:Times New Roman"
+       xml:space="preserve"><tspan
+         y="26.794403"
+         x="23.176971"
+         id="tspan3229"
+         sodipodi:role="line">α</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px"
+       x="53.176971"
+       y="26.794403"
+       id="text3231"><tspan
+         sodipodi:role="line"
+         id="tspan3233"
+         x="53.176971"
+         y="26.794403">β</tspan></text>
+    <rect
+       y="20"
+       x="100"
+       height="20"
+       width="20"
+       id="rect5695"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text5697"
+       y="37.30455"
+       x="102.14722"
+       style="font-size:16px"
+       xml:space="preserve"><tspan
+         y="37.30455"
+         x="102.14722"
+         id="tspan5699"
+         sodipodi:role="line">S</tspan></text>
+    <text
+       id="text5701"
+       y="28.5"
+       x="112.62109"
+       style="font-size:8px"
+       xml:space="preserve"><tspan
+         y="28.5"
+         x="112.62109"
+         id="tspan5703"
+         sodipodi:role="line">1</tspan></text>
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1"
+       d="M 100,25.9502 L 85,25.9502"
+       id="path5707" />
+    <path
+       id="path5709"
+       d="M 120,29.9502 L 135,29.9502"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1" />
+    <text
+       id="text5711"
+       y="40.794403"
+       x="93.293167"
+       style="font-size:8px;font-family:Calisto MT"
+       xml:space="preserve"><tspan
+         y="40.794403"
+         x="93.293167"
+         id="tspan5713"
+         sodipodi:role="line">s</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-family:Times New Roman"
+       x="92.88237"
+       y="22.794403"
+       id="text5715"><tspan
+         sodipodi:role="line"
+         id="tspan5717"
+         x="92.88237"
+         y="22.794403">α</tspan></text>
+    <text
+       id="text5719"
+       y="26.794403"
+       x="123.17697"
+       style="font-size:6px"
+       xml:space="preserve"><tspan
+         y="26.794403"
+         x="123.17697"
+         id="tspan5721"
+         sodipodi:role="line">β</tspan></text>
+    <path
+       id="path5723"
+       d="M 100,33.9502 L 85,33.9502"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5725"
+       width="20"
+       height="20"
+       x="170"
+       y="20" />
+    <path
+       id="path5735"
+       d="M 170,25.9502 L 155,25.9502"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-family:Calisto MT"
+       x="163.29317"
+       y="40.794403"
+       id="text5739"><tspan
+         sodipodi:role="line"
+         id="tspan5741"
+         x="163.29317"
+         y="40.794403">s</tspan></text>
+    <text
+       id="text5743"
+       y="22.794403"
+       x="162.88237"
+       style="font-size:8px;font-family:Times New Roman"
+       xml:space="preserve"><tspan
+         y="22.794403"
+         x="162.88237"
+         id="tspan5745"
+         sodipodi:role="line">α</tspan></text>
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1"
+       d="M 170,33.9502 L 155,33.9502"
+       id="path5751" />
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:none;stroke-opacity:1"
+       d="M 200,25 L 190,25"
+       id="path5755"
+       sodipodi:nodetypes="cc" />
+    <path
+       id="path5771"
+       d="M 200,35 L 190,35"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:none;stroke-opacity:1"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 200,20 L 200,40 L 220,35 L 220,25 L 200,20 z "
+       id="path5794" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5798"
+       width="10"
+       height="10"
+       x="230"
+       y="25"
+       ry="0" />
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 220,30.005867 L 230,30.005867"
+       id="path5800"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px"
+       x="174.14722"
+       y="35.30455"
+       id="text5802"><tspan
+         sodipodi:role="line"
+         id="tspan5804"
+         x="174.14722"
+         y="35.30455">U</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Calisto MT"
+       x="204.5802"
+       y="33.744659"
+       id="text5806"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5810"
+         x="204.5802"
+         y="33.744659">Σ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="232.37643"
+       y="33.11293"
+       id="text5812"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan5814"
+         x="232.37643"
+         y="33.11293">V</tspan></text>
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1"
+       d="M 240,29.9502 L 255,29.9502"
+       id="path5816" />
+    <text
+       xml:space="preserve"
+       style="font-size:6px"
+       x="243.17697"
+       y="26.794403"
+       id="text5818"><tspan
+         sodipodi:role="line"
+         id="tspan5820"
+         x="243.17697"
+         y="26.794403">β</tspan></text>
+    <rect
+       y="20"
+       x="290"
+       height="20"
+       width="20"
+       id="rect5822"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1"
+       d="M 290,25.9502 L 275,25.9502"
+       id="path5824" />
+    <text
+       id="text5826"
+       y="46.794403"
+       x="303.29315"
+       style="font-size:8px;font-family:Calisto MT"
+       xml:space="preserve"><tspan
+         y="46.794403"
+         x="303.29315"
+         id="tspan5828"
+         sodipodi:role="line">s</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-family:Times New Roman"
+       x="282.88239"
+       y="22.794403"
+       id="text5830"><tspan
+         sodipodi:role="line"
+         id="tspan5832"
+         x="282.88239"
+         y="22.794403">α</tspan></text>
+    <path
+       id="path5834"
+       d="M 300.0782,40.047621 L 300.0782,55.047621"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="cc"
+       id="path5836"
+       d="M 320.5892,30.005867 L 310,25"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:none;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:none;stroke-opacity:1"
+       d="M 320,30 L 310,35"
+       id="path5838" />
+    <rect
+       ry="0"
+       y="25"
+       x="330"
+       height="10"
+       width="10"
+       id="rect5842"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="cc"
+       id="path5844"
+       d="M 320.00018,30 L 330,30.005867"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       id="text5846"
+       y="35.30455"
+       x="294.14722"
+       style="font-size:16px"
+       xml:space="preserve"><tspan
+         y="35.30455"
+         x="294.14722"
+         id="tspan5848"
+         sodipodi:role="line">U</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text5854"
+       y="33.11293"
+       x="332.37643"
+       style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"><tspan
+         y="33.11293"
+         x="332.37643"
+         id="tspan5856"
+         sodipodi:role="line">V</tspan></text>
+    <path
+       id="path5858"
+       d="M 340,29.9502 L 355,29.9502"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1" />
+    <text
+       id="text5860"
+       y="26.794403"
+       x="343.17697"
+       style="font-size:6px"
+       xml:space="preserve"><tspan
+         y="26.794403"
+         x="343.17697"
+         id="tspan5862"
+         sodipodi:role="line">β</tspan></text>
+    <rect
+       y="20"
+       x="390"
+       height="20"
+       width="20"
+       id="rect5892"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text5894"
+       y="37.30455"
+       x="392.14722"
+       style="font-size:16px"
+       xml:space="preserve"><tspan
+         y="37.30455"
+         x="392.14722"
+         id="tspan5896"
+         sodipodi:role="line">S</tspan></text>
+    <text
+       id="text5898"
+       y="28.5"
+       x="402.62109"
+       style="font-size:8px"
+       xml:space="preserve"><tspan
+         y="28.5"
+         x="402.62109"
+         id="tspan5900"
+         sodipodi:role="line">1</tspan></text>
+    <path
+       id="path5902"
+       d="M 399.5,40.5 L 399.5,55.5"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1" />
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1"
+       d="M 390,29.9502 L 375,29.9502"
+       id="path5904" />
+    <path
+       id="path5906"
+       d="M 410,29.9502 L 425,29.9502"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1" />
+    <text
+       id="text5908"
+       y="46.794403"
+       x="402.17697"
+       style="font-size:8px;font-family:Calisto MT"
+       xml:space="preserve"><tspan
+         y="46.794403"
+         x="402.17697"
+         id="tspan5910"
+         sodipodi:role="line">s</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8px;font-family:Times New Roman"
+       x="383.17697"
+       y="26.794403"
+       id="text5912"><tspan
+         sodipodi:role="line"
+         id="tspan5914"
+         x="383.17697"
+         y="26.794403">α</tspan></text>
+    <text
+       id="text5916"
+       y="26.794403"
+       x="413.17697"
+       style="font-size:6px"
+       xml:space="preserve"><tspan
+         y="26.794403"
+         x="413.17697"
+         id="tspan5918"
+         sodipodi:role="line">β</tspan></text>
+  </g>
+</svg>

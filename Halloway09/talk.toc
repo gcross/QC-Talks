@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.07pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Motivation}{15}{0}{1}
+\beamer@subsectionintoc {1}{1}{Classic Divide and Conquer}{15}{0}{1}
+\beamer@subsectionintoc {1}{2}{Quantum Divide and Conquer}{23}{0}{1}
+\beamer@sectionintoc {2}{Application}{65}{0}{2}
+\beamer@subsectionintoc {2}{1}{Statics}{65}{0}{2}
+\beamer@subsectionintoc {2}{2}{Dynamics}{112}{0}{2}

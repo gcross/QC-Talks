@@ -1,0 +1,22 @@
+The todo list is a list of features I know would be good
+but don't have time to figure out.  Patches welcomed.
+
+Disable auto-play from within the movie.  It's possible to
+configure the quicktime pluging using html, but that
+requires an extra page.
+
+Enable fast-start -- playing the movie before it's fully
+downloaded.
+
+Auto-detect image resolution, replacing -8 or -1.
+
+Automaticaly locate the keynote-sprt.dat file.
+
+Synthesize the relevant parts of the remaining keynote
+sprite.
+
+Support audio narration for each slide in lieu of pausing.
+
+
+
+
